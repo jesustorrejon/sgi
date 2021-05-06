@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,10 @@ namespace SGI
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            //OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= hr; USER ID= hr;");
-            //ora.Open();
-            MessageBox.Show("Conectado");
-            //ora.Close();
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            if(ora.State == ConnectionState.Open);
+                MessageBox.Show("Conectado");
+                ora.Close();
         }
     }
 }
