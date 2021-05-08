@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 // LIBRERIAS
-using MySql.Data.MySqlClient; // Conector a base de datos Mysql
+//using MySql.Data.MySqlClient; // Conector a base de datos Mysql
 using System.Collections.Generic; // Trabajar con listas
 using System.Data.Common; // para trabajar con la conexion generica de nuestro motor db
 using System.Data.OracleClient; // Oracle Database
 using System.Data;
 
-namespace SGI.Data
+namespace CommonProject.Data
 {
-    public class DbHelper
+    class DbHelper
     {
         // propiedades
         private string ConnectionString = "";
@@ -54,7 +54,7 @@ namespace SGI.Data
 
         private void BeginTransaction()
         {
-            if(Connection.State == ConnectionState.Closed)
+            if (Connection.State == ConnectionState.Closed)
             {
                 Connection.Open();
             }
@@ -64,7 +64,7 @@ namespace SGI.Data
         // Metodo encargado de confirmar la transaccion a la base de datos
         private void CommitTransaction()
         {
-            if(Connection.State == ConnectionState.Open)
+            if (Connection.State == ConnectionState.Open)
             {
                 Command.Transaction.Commit();
                 Connection.Close();
@@ -89,7 +89,7 @@ namespace SGI.Data
 
             try
             {
-                if(Connection.State == ConnectionState.Closed)
+                if (Connection.State == ConnectionState.Closed)
                 {
                     Connection.Open();
                 }
@@ -105,7 +105,7 @@ namespace SGI.Data
             finally
             {
                 Command.Parameters.Clear();
-                if(Connection.State == ConnectionState.Open)
+                if (Connection.State == ConnectionState.Open)
                 {
                     Connection.Close();
                     Connection.Dispose(); // liberar recursos utilizados
@@ -116,7 +116,7 @@ namespace SGI.Data
             return i;
 
         }
-        
+
         public DataTable GetDataTable(string query)
         {
             DbDataAdapter adapter = _factory.CreateDataAdapter();
@@ -137,7 +137,7 @@ namespace SGI.Data
             finally
             {
                 Command.Parameters.Clear();
-                if(Connection.State == ConnectionState.Open)
+                if (Connection.State == ConnectionState.Open)
                 {
                     Connection.Close();
                     Connection.Dispose();
@@ -176,7 +176,5 @@ namespace SGI.Data
         {
             MySQL, SqlServer, Oracle, OleDb, SQLite
         }
-
-
     }
 }

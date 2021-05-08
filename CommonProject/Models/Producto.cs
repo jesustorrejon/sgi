@@ -1,12 +1,14 @@
-﻿using SGI.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SGI.Models
+// Librerias
+using System.Data;
+using CommonProject.Data;
+
+namespace CommonProject.Models
 {
     class Producto
     {
@@ -86,7 +88,7 @@ namespace SGI.Models
             DB.AddParameters("imagen_", this.Imagen);
             int res = DB.CRUD("sp_productos_update");
 
-            return (res == 1 ? $"{ App.ClsCommon.RowUpdated } { entity } " : App.ClsCommon.NoRowsUpdated );
+            return (res == 1 ? $"{ App.ClsCommon.RowUpdated } { entity } " : App.ClsCommon.NoRowsUpdated);
         }
 
         public string Destroy()
@@ -97,13 +99,13 @@ namespace SGI.Models
             return (res == 1 ? $"{ App.ClsCommon.RowDeleted } { entity } " : App.ClsCommon.NoRowsDeleted);
         }
 
-        public DataTable Search( string searchText)
+        public DataTable Search(string searchText)
         {
             DB.AddParameters("txt", searchText);
             return DB.GetDataTable("sp_productos_search");
         }
 
-        public DataTable SearchByCode( string barcode)
+        public DataTable SearchByCode(string barcode)
         {
             DB.AddParameters("codigo_barra", barcode);
 

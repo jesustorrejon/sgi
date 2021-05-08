@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SGI.App
+namespace CommonProject.App
 {
-    public class ClsCommon
+    class ClsCommon
     {
-
         public static int flag = 0;
         public static bool payCommited = false;
         public static string FileName_Ticket;

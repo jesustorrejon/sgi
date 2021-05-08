@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Librerias
-using SGI.Data;
+using CommonProject.Data;
 using System.Data;
 
-namespace SGI.Models
+namespace CommonProject.Models
 {
-    public class Familia
+    class Familia
     {
         private readonly DbHelper DB = new DbHelper(App.ClsCommon.ConnectionString, CommandType.StoredProcedure);
         private readonly string entity = "Familia";
@@ -85,8 +85,6 @@ namespace SGI.Models
             // si info es mayor a cero, dara como resultado true.
             return (info != null && info.Rows.Count > 0 ? true : false);
         }
-
-
 
 
 
