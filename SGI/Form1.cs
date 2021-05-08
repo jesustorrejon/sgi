@@ -24,9 +24,17 @@ namespace SGI
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
             OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-            if(ora.State == ConnectionState.Open);
+            ora.Open();
+            if(ora.State == ConnectionState.Open)
+            {
                 MessageBox.Show("Conectado");
                 ora.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+
         }
     }
 }

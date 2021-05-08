@@ -20,7 +20,9 @@ namespace SGI.Views
 
         private void fProducts_Load(object sender, EventArgs e)
         {
-
+            dtGrid.Rows.Add("1","COCA COLA");
+            dtGrid.Rows.Add("2", "AGUA NATURAL");
+            dtGrid.Rows.Add("3", "TEQUILA");
         }
     }
 }

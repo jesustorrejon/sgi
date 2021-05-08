@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Data.OracleClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommonProject.Data
-{
-    class DbHelper
-    {
+// LIBRERIAS
+using MySql.Data.MySqlClient; // Conector a base de datos Mysql
+using System.Collections.Generic; // Trabajar con listas
+using System.Data.Common; // para trabajar con la conexion generica de nuestro motor db
+using System.Data.OracleClient; // Oracle Database
+using System.Data;
 
+namespace SGI.Data
+{
+    public class DbHelper
+    {
         // propiedades
         private string ConnectionString = "";
         // Clase abstracta que representa una conexion a una base de datos
@@ -51,7 +54,7 @@ namespace CommonProject.Data
 
         private void BeginTransaction()
         {
-            if (Connection.State == ConnectionState.Closed)
+            if(Connection.State == ConnectionState.Closed)
             {
                 Connection.Open();
             }
@@ -61,7 +64,7 @@ namespace CommonProject.Data
         // Metodo encargado de confirmar la transaccion a la base de datos
         private void CommitTransaction()
         {
-            if (Connection.State == ConnectionState.Open)
+            if(Connection.State == ConnectionState.Open)
             {
                 Command.Transaction.Commit();
                 Connection.Close();
@@ -86,7 +89,7 @@ namespace CommonProject.Data
 
             try
             {
-                if (Connection.State == ConnectionState.Closed)
+                if(Connection.State == ConnectionState.Closed)
                 {
                     Connection.Open();
                 }
@@ -102,7 +105,7 @@ namespace CommonProject.Data
             finally
             {
                 Command.Parameters.Clear();
-                if (Connection.State == ConnectionState.Open)
+                if(Connection.State == ConnectionState.Open)
                 {
                     Connection.Close();
                     Connection.Dispose(); // liberar recursos utilizados
@@ -113,7 +116,7 @@ namespace CommonProject.Data
             return i;
 
         }
-
+        
         public DataTable GetDataTable(string query)
         {
             DbDataAdapter adapter = _factory.CreateDataAdapter();
@@ -134,7 +137,7 @@ namespace CommonProject.Data
             finally
             {
                 Command.Parameters.Clear();
-                if (Connection.State == ConnectionState.Open)
+                if(Connection.State == ConnectionState.Open)
                 {
                     Connection.Close();
                     Connection.Dispose();
@@ -173,6 +176,7 @@ namespace CommonProject.Data
         {
             MySQL, SqlServer, Oracle, OleDb, SQLite
         }
+
 
     }
 }
