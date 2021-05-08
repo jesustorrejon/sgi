@@ -124,5 +124,14 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\CommonProject\bin\Debug\CommonProject.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonProject\CommonProject.csproj">
+      <Project>{2c435a14-8a48-4414-9dd6-079929982270}</Project>
+      <Name>CommonProject</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

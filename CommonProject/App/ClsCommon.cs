@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonProject.App
 {
-    class ClsCommon
+    public class ClsCommon
     {
         public static int flag = 0;
         public static bool payCommited = false;

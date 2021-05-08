@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //Librerias
-using CommonProject.App;
 using ComponentFactory.Krypton.Toolkit;
 
 namespace SGI
@@ -26,7 +25,7 @@ namespace SGI
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection(App.ClsCommon.ConnectionString);
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
             ora.Open();
             if(ora.State == ConnectionState.Open)
             {

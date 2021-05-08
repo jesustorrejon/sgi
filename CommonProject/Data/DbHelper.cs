@@ -13,7 +13,7 @@ using System.Data;
 
 namespace CommonProject.Data
 {
-    class DbHelper
+    public class DbHelper
     {
         // propiedades
         private string ConnectionString = "";

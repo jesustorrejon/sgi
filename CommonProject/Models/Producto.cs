@@ -10,7 +10,7 @@ using CommonProject.Data;
 
 namespace CommonProject.Models
 {
-    class Producto
+    public class Producto
     {
         private readonly DbHelper DB = new DbHelper(App.ClsCommon.ConnectionString, CommandType.StoredProcedure);
         private readonly string entity = "Productos";

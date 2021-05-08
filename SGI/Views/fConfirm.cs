@@ -1,5 +1,4 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
-using SGI.App;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +35,7 @@ namespace SGI.Views
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-            ClsCommon.flag = 1;
+            CommonProject.App.ClsCommon.flag = 1;
             this.Close();
         }
 

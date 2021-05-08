@@ -10,7 +10,7 @@ using System.Data;
 
 namespace CommonProject.Models
 {
-    class Familia
+    public class Familia
     {
         private readonly DbHelper DB = new DbHelper(App.ClsCommon.ConnectionString, CommandType.StoredProcedure);
         private readonly string entity = "Familia";

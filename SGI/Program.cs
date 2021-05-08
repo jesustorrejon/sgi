@@ -17,7 +17,7 @@ namespace SGI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fProducts());
+            Application.Run(new Form1());
         }
     }
 }
