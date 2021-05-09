@@ -18,11 +18,13 @@ namespace CommonProject.Models
         private string codigo;
         private int secuencia;
         private string descripcion;
+        private string imagen;
 
         // Getters y Setters
         public string Codigo { get => codigo; set => codigo = value; }
         public int Secuencia { get => secuencia; set => secuencia = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
+        public string Imagen { get => imagen; set => imagen = value; }
 
 
         // metodos
