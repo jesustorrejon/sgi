@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +34,7 @@ namespace CommonProject.Data
 
 
         // Constructor
+       
         public DbHelper(string ConnectString, CommandType CommandType, DbProviders ProviderName = DbHelper.DbProviders.Oracle)
         {
             _provider = ProviderName;
@@ -51,6 +51,7 @@ namespace CommonProject.Data
 
             Command.Connection = Connection;
         }
+        
 
         private void BeginTransaction()
         {

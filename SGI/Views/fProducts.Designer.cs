@@ -258,7 +258,7 @@ namespace SGI.Views
             this.kpList,
             this.kpEdit,
             this.kpFamily});
-            this.kryptonNavigator1.SelectedIndex = 1;
+            this.kryptonNavigator1.SelectedIndex = 0;
             this.kryptonNavigator1.Size = new System.Drawing.Size(1120, 510);
             this.kryptonNavigator1.TabIndex = 5;
             // 
@@ -781,9 +781,9 @@ namespace SGI.Views
             this.cmbFamilia.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny7});
             this.cmbFamilia.DropDownWidth = 171;
-            this.cmbFamilia.Location = new System.Drawing.Point(594, 120);
+            this.cmbFamilia.Location = new System.Drawing.Point(410, 120);
             this.cmbFamilia.Name = "cmbFamilia";
-            this.cmbFamilia.Size = new System.Drawing.Size(168, 41);
+            this.cmbFamilia.Size = new System.Drawing.Size(352, 41);
             this.cmbFamilia.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
             this.cmbFamilia.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.Gray;
             this.cmbFamilia.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -792,6 +792,7 @@ namespace SGI.Views
             this.cmbFamilia.StateCommon.ComboBox.Border.Rounding = 3;
             this.cmbFamilia.StateCommon.ComboBox.Border.Width = 3;
             this.cmbFamilia.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFamilia.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFamilia.TabIndex = 7;
             // 
             // buttonSpecAny7

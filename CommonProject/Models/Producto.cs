@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 // Librerias
 using System.Data;
 using CommonProject.Data;
+using System.Data.OracleClient;
 
 namespace CommonProject.Models
 {
@@ -47,27 +48,40 @@ namespace CommonProject.Models
 
 
         // METODOS
-        public DataTable Data() => DB.GetDataTable("sp_productos_data");
+        public DataTable Data(DataTable dt_)
+        {
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_productos_data", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adapter = new OracleDataAdapter();
+            adapter.SelectCommand = comando;
+            adapter.Fill(dt_);
+            ora.Close();
+            return dt_;
+        }
 
         public DataTable DataOrders()
         {
-            DB.AddParameters("familia_codigo", this.Codigo_familia);
+            DB.AddParameters("v_familia_codigo", this.Codigo_familia);
             return DB.GetDataTable("sp_productos_data_touch");
         }
 
         public string Create()
         {
-            DB.AddParameters("codigo_", this.Codigo);
-            DB.AddParameters("rut_proveedor_", this.Rut_proveedor);
-            DB.AddParameters("codigo_familia_", this.Codigo_familia);
-            DB.AddParameters("fecha_vencimiento_", this.Fecha_vencimiento);
-            DB.AddParameters("descripcion_", this.Descripcion);
-            DB.AddParameters("unidad_medida_", this.Unidad_medida);
-            DB.AddParameters("precio_compra_", this.Precio_compra);
-            DB.AddParameters("precio_venta_", this.Precio_venta);
-            DB.AddParameters("stock_", this.Stock);
-            DB.AddParameters("stock_critico_", this.Stock_critico);
-            DB.AddParameters("imagen_", this.Imagen);
+            DB.AddParameters("v_codigo", this.Codigo);
+            DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
+            DB.AddParameters("v_codigo_familia", this.Codigo_familia);
+            DB.AddParameters("v_fecha_vencimiento", this.Fecha_vencimiento);
+            DB.AddParameters("v_descripcion", this.Descripcion);
+            DB.AddParameters("v_unidad_medida", this.Unidad_medida);
+            DB.AddParameters("v_precio_compra", this.Precio_compra);
+            DB.AddParameters("v_precio_venta", this.Precio_venta);
+            DB.AddParameters("v_stock", this.Stock);
+            DB.AddParameters("v_stock_critico", this.Stock_critico);
+            DB.AddParameters("v_imagen", this.Imagen);
             int res = DB.CRUD("sp_productos_create");
 
             return (res == 1 ? $"{ App.ClsCommon.RowCreated } { entity } " : App.ClsCommon.NoRowsAdded);
@@ -75,17 +89,17 @@ namespace CommonProject.Models
 
         public string Update()
         {
-            DB.AddParameters("codigo_", this.Codigo);
-            DB.AddParameters("rut_proveedor_", this.Rut_proveedor);
-            DB.AddParameters("codigo_familia_", this.Codigo_familia);
-            DB.AddParameters("fecha_vencimiento_", this.Fecha_vencimiento);
-            DB.AddParameters("descripcion_", this.Descripcion);
-            DB.AddParameters("unidad_medida_", this.Unidad_medida);
-            DB.AddParameters("precio_compra_", this.Precio_compra);
-            DB.AddParameters("precio_venta_", this.Precio_venta);
-            DB.AddParameters("stock_", this.Stock);
-            DB.AddParameters("stock_critico_", this.Stock_critico);
-            DB.AddParameters("imagen_", this.Imagen);
+            DB.AddParameters("v_codigo", this.Codigo);
+            DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
+            DB.AddParameters("v_codigo_familia", this.Codigo_familia);
+            DB.AddParameters("v_fecha_vencimiento", this.Fecha_vencimiento);
+            DB.AddParameters("v_descripcion", this.Descripcion);
+            DB.AddParameters("v_unidad_medida", this.Unidad_medida);
+            DB.AddParameters("v_precio_compra", this.Precio_compra);
+            DB.AddParameters("v_precio_venta", this.Precio_venta);
+            DB.AddParameters("v_stock", this.Stock);
+            DB.AddParameters("v_stock_critico", this.Stock_critico);
+            DB.AddParameters("v_imagen", this.Imagen);
             int res = DB.CRUD("sp_productos_update");
 
             return (res == 1 ? $"{ App.ClsCommon.RowUpdated } { entity } " : App.ClsCommon.NoRowsUpdated);
@@ -93,7 +107,7 @@ namespace CommonProject.Models
 
         public string Destroy()
         {
-            DB.AddParameters("codigo_", this.Codigo);
+            DB.AddParameters("v_codigo", this.Codigo);
             int res = DB.CRUD("sp_productos_destroy");
 
             return (res == 1 ? $"{ App.ClsCommon.RowDeleted } { entity } " : App.ClsCommon.NoRowsDeleted);
@@ -101,13 +115,13 @@ namespace CommonProject.Models
 
         public DataTable Search(string searchText)
         {
-            DB.AddParameters("txt", searchText);
+            DB.AddParameters("v_palabra", searchText);
             return DB.GetDataTable("sp_productos_search");
         }
 
         public DataTable SearchByCode(string barcode)
         {
-            DB.AddParameters("codigo_barra", barcode);
+            DB.AddParameters("v_codigo_barra", barcode);
 
             return DB.GetDataTable("sp_productos_search_bycode");
         }
@@ -118,7 +132,7 @@ namespace CommonProject.Models
 
             if(code !=null && code.Rows.Count > 0)
             {
-                return code.Rows[0].Field<ulong>("id").ToString("D10");
+                return code.Rows[0].Field<ulong>("codigo").ToString("D10");
             }
             else
             {

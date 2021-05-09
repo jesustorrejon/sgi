@@ -41,8 +41,8 @@ namespace SGI.Views
         {
             InitializeComponent();
             //this.kform = kform;
-            //this.Data();
-            //this.FamiliaList();
+            this.Data();
+            this.FamiliaList();
 
         }
 
@@ -51,7 +51,7 @@ namespace SGI.Views
         {
             this.dtGrid.Columns.Clear();
             // Traer datos de procedimiento almacenado al datagrid
-            this.dtProd = pr.Data();
+            pr.Data(dtProd);
             this.dtGrid.DataSource = dtProd;
 
             // Modificar altura del Datagrid en 40 puntos
@@ -67,21 +67,21 @@ namespace SGI.Views
 
         private void FamiliaList()
         {
-            this.dtFam = fa.List();
+            fa.List(dtFam);
             cmbFamilia.DisplayMember = "descripcion";
             cmbFamilia.ValueMember = "codigo";
             cmbFamilia.DataSource = dtFam;
-
+            
             if(dtFam !=null && dtFam.Rows.Count > 0)
             {
                 this.klistFamilia.Items.Clear();
                 for (int i = 0; i <= dtFam.Rows.Count-1; i++)
                 {
-                    this.klistFamilia.Items.Add($"{dtFam.Rows[i].Field<Int32>("codigo")} - {dtFam.Rows[i].Field<string>("descripcion")}");
+                    this.klistFamilia.Items.Add($"{dtFam.Rows[i].Field<string>("codigo")} - {dtFam.Rows[i].Field<string>("descripcion")}");
                 }
             
             }
-
+            
             if (cmbFamilia.Items.Count > 0) cmbFamilia.SelectedIndex = 0;
 
         }

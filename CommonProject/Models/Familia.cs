@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 // Librerias
 using CommonProject.Data;
 using System.Data;
+using System.Data.OracleClient;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace CommonProject.Models
 {
@@ -31,12 +33,25 @@ namespace CommonProject.Models
         // procedimiento almacenado para listar categorias de productos
         public DataTable Data() => DB.GetDataTable("sp_familia_data");
 
-        public DataTable List() => DB.GetDataTable("sp_familia_list");
+        public DataTable List(DataTable dt_) 
+        {
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_familia_list", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adapter = new OracleDataAdapter();
+            adapter.SelectCommand = comando;
+            adapter.Fill(dt_);
+            ora.Close();
+            return dt_;
+        }
 
         public string Create()
         {
-            DB.AddParameters("codigo_", this.Codigo);
-            DB.AddParameters("descripcion_", this.Descripcion);
+            DB.AddParameters("v_codigo", this.Codigo);
+            DB.AddParameters("v_descripcion", this.Descripcion);
             int res = DB.CRUD("sp_familia_create"); // Procedimiento almacenado agregar categoria
 
             // mensaje con interpolacion de exito y fracaso, haciendo referencia a mensajes de la clase ClsCommon
@@ -45,16 +60,16 @@ namespace CommonProject.Models
 
         public string Update()
         {
-            DB.AddParameters("codigo_", this.Codigo);
-            DB.AddParameters("descripcion_", this.Descripcion);
-            int res = DB.CRUD("sp_familia_update");
+            DB.AddParameters("v_codigo", this.Codigo);
+            DB.AddParameters("v_descripcion", this.Descripcion);
+            int res = DB.CRUD("sgi.sp_familia_update");
 
             return (res == 1 ? $"{App.ClsCommon.RowUpdated} {entity}" : App.ClsCommon.NoRowsUpdated);
         }
 
         public string Destroy()
         {
-            DB.AddParameters("codigo_", this.Codigo);
+            DB.AddParameters("V_codigo", this.Codigo);
             int res = DB.CRUD("sp_familia_destroy");
 
             return (res == 1 ? $"{App.ClsCommon.RowDeleted} {entity}" : App.ClsCommon.NoRowsDeleted);
@@ -62,7 +77,7 @@ namespace CommonProject.Models
 
         public DataTable Search(string searchText)
         {
-            DB.AddParameters("txt", searchText);
+            DB.AddParameters("v_palabra", searchText);
 
             return DB.GetDataTable("sp_familia_search");
         }
@@ -71,7 +86,7 @@ namespace CommonProject.Models
         // metodo para NO permitir borrar categoria si tiene un producto asociado.
         public bool HasProduct(int familia_codigo)
         {
-            DB.AddParameters("codigo_", familia_codigo);
+            DB.AddParameters("v_codigo", familia_codigo);
             DataTable info = DB.GetDataTable("sp_familia_hasproduct");
 
             // si info es mayor a cero, dara como resultado true.
@@ -81,7 +96,7 @@ namespace CommonProject.Models
         // metodo para nor permitir duplicidad de categorias
         public bool FamiliaExists(int descripcion)
         {
-            DB.AddParameters("descripcion_", descripcion);
+            DB.AddParameters("v_descripcion", descripcion);
             DataTable info = DB.GetDataTable("sp_familia_exists");
 
             // si info es mayor a cero, dara como resultado true.

@@ -16,7 +16,8 @@ namespace SGI
 {
     public partial class Form1 : KryptonForm
     {
-        
+
+     
 
         public Form1()
         {
@@ -25,12 +26,27 @@ namespace SGI
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-            ora.Open();
-            if(ora.State == ConnectionState.Open)
+            //OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            CommonProject.Data.DbHelper ora = new CommonProject.Data.DbHelper(CommonProject.App.ClsCommon.ConnectionString, CommandType.StoredProcedure);
+
+            CommonProject.Models.Familia familia = new CommonProject.Models.Familia();
+            
+
+
+            ora.Connection.Open();
+            if(ora.Connection.State == ConnectionState.Open)
             {
-                MessageBox.Show("Conectado");
-                ora.Close();
+                familia.Codigo = "PRUEBA3";
+                familia.Descripcion = "PRUEBA3";
+                familia.Create();
+                /*
+                OracleCommand comando = new OracleCommand("sp_familia_create", ora);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("v_codigo", OracleType.VarChar).Value = "PRUEBA2";
+                comando.Parameters.Add("v_descripcion", OracleType.VarChar).Value = "PRUEBA";
+                comando.ExecuteNonQuery();
+                */
+                ora.Connection.Close();
             }
             else
             {
