@@ -14,6 +14,7 @@ using CommonProject.Models;
 using CommonProject.App;
 using CommonProject.Data;
 using SGI.App;
+using System.Data.OracleClient;
 
 namespace SGI.Views
 {
@@ -67,6 +68,7 @@ namespace SGI.Views
 
         private void FamiliaList()
         {
+            //this.dtFam = fa.List();
             fa.List(dtFam);
             cmbFamilia.DisplayMember = "descripcion";
             cmbFamilia.ValueMember = "codigo";
@@ -232,6 +234,89 @@ namespace SGI.Views
         private void txtRaciones_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = ClsUI.SoloDecimal(sender, e);
+        }
+
+        private void txtCosto_Validated(object sender, EventArgs e)
+        {
+            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+        }
+
+        private void txtPrecio_Validated(object sender, EventArgs e)
+        {
+            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+        }
+
+        private void txtPrecioEspecial_Validated(object sender, EventArgs e)
+        {
+            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+        }
+
+        private void txtStock_Validated(object sender, EventArgs e)
+        {
+            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+        }
+
+        private void txtStockCritico_Validated(object sender, EventArgs e)
+        {
+            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+        }
+
+        private void txtRaciones_Validated(object sender, EventArgs e)
+        {
+            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            this.ResetUI();
+            this.kryptonNavigator1.SelectedIndex = 1;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.CreateorUpdate();
+        }
+
+        private void btnDestroy_Click(object sender, EventArgs e)
+        {
+            if (this.secuencia_producto<0)
+            {
+                clsSGI.Toast("Debe seleccionar el registro a eliminar");
+                this.kryptonNavigator1.SelectedIndex = 0;
+                this.dtGrid.Focus();
+                return;
+            }
+
+            this.kryptonNavigator1.SelectedIndex = 1;
+            fConfirm f = new fConfirm();
+            f.ShowDialog();
+
+            if (ClsCommon.flag == 1)
+            {
+                this.Destroy();
+                ClsCommon.flag = 0;
+            }
+        }
+
+        private void dtGrid_DoubleClick(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                this.pBox.Image = null;
+                this.secuencia_producto = Convert.ToInt32(this.dtGrid.CurrentRow.Cells["NRO"].Value);
+                this.txtCodigo.Text = this.dtGrid.CurrentRow.Cells["ID"].Value.ToString();
+                this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["NOMBRE"].Value.ToString();
+                this.cmbFamilia.Text = this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString();
+                this.txtBarcode.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
+                //this.dateFechaVencimiento = this.dtGrid.CurrentRow.Cells["VENCIMIENTO"].Value;
+
+                this.kryptonNavigator1.SelectedIndex = 1;
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

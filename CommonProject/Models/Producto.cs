@@ -126,6 +126,8 @@ namespace CommonProject.Models
             return DB.GetDataTable("sp_productos_search_bycode");
         }
 
+
+
         /*public DataTable GetBarcode()
         {
             DataTable code = DB.GetDataTable("sp_barcode_next");

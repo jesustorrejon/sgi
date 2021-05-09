@@ -25,5 +25,7 @@ namespace CommonProject.App
             return validar;
         }
 
+        public static string Divisa(string txtValor) => decimal.Parse((string.IsNullOrEmpty(txtValor.Trim()) ? "0" : txtValor.Trim())).ToString("F");
+
     }
 }

@@ -33,20 +33,20 @@ namespace CommonProject.Models
         // procedimiento almacenado para listar categorias de productos
         public DataTable Data() => DB.GetDataTable("sp_familia_data");
 
-        public DataTable List(DataTable dt_) 
+        public DataTable List(DataTable dt_) /*=> DB.GetDataTable("sp_familia_list");*/
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("sp_familia_list", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+             OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+             ora.Open();
+             OracleCommand comando = new OracleCommand("sp_familia_list", ora);
+             comando.CommandType = System.Data.CommandType.StoredProcedure;
+             comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
-            OracleDataAdapter adapter = new OracleDataAdapter();
-            adapter.SelectCommand = comando;
-            adapter.Fill(dt_);
-            ora.Close();
-            return dt_;
-        }
+             OracleDataAdapter adapter = new OracleDataAdapter();
+             adapter.SelectCommand = comando;
+             adapter.Fill(dt_);
+             ora.Close();
+             return dt_;
+         }
 
         public string Create()
         {

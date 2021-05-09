@@ -165,6 +165,7 @@ namespace SGI.Views
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Values.Image")));
             this.btnAdd.Values.Text = "";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDestroy
             // 
@@ -186,6 +187,7 @@ namespace SGI.Views
             this.btnDestroy.TabIndex = 2;
             this.btnDestroy.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnDestroy.Values.Image")));
             this.btnDestroy.Values.Text = "";
+            this.btnDestroy.Click += new System.EventHandler(this.btnDestroy_Click);
             // 
             // btnSave
             // 
@@ -207,6 +209,7 @@ namespace SGI.Views
             this.btnSave.TabIndex = 3;
             this.btnSave.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Values.Image")));
             this.btnSave.Values.Text = "";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtSearch
             // 
@@ -305,6 +308,7 @@ namespace SGI.Views
             this.dtGrid.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dtGrid.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtGrid.TabIndex = 0;
+            this.dtGrid.DoubleClick += new System.EventHandler(this.dtGrid_DoubleClick);
             // 
             // COLCODIGO
             // 
@@ -505,6 +509,7 @@ namespace SGI.Views
             this.txtRaciones.Text = "0.00";
             this.txtRaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRaciones_KeyPress);
+            this.txtRaciones.Validated += new System.EventHandler(this.txtRaciones_Validated);
             // 
             // buttonSpecAny18
             // 
@@ -542,6 +547,7 @@ namespace SGI.Views
             this.txtStockCritico.Text = "0.00";
             this.txtStockCritico.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtStockCritico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockCritico_KeyPress);
+            this.txtStockCritico.Validated += new System.EventHandler(this.txtStockCritico_Validated);
             // 
             // buttonSpecAny20
             // 
@@ -579,6 +585,7 @@ namespace SGI.Views
             this.txtStock.Text = "0.00";
             this.txtStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
+            this.txtStock.Validated += new System.EventHandler(this.txtStock_Validated);
             // 
             // buttonSpecAny22
             // 
@@ -616,6 +623,7 @@ namespace SGI.Views
             this.txtPrecioEspecial.Text = "0.00";
             this.txtPrecioEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioEspecial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioEspecial_KeyPress);
+            this.txtPrecioEspecial.Validated += new System.EventHandler(this.txtPrecioEspecial_Validated);
             // 
             // buttonSpecAny16
             // 
@@ -653,6 +661,7 @@ namespace SGI.Views
             this.txtPrecio.Text = "0.00";
             this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            this.txtPrecio.Validated += new System.EventHandler(this.txtPrecio_Validated);
             // 
             // buttonSpecAny14
             // 
@@ -690,6 +699,7 @@ namespace SGI.Views
             this.txtCosto.Text = "0.00";
             this.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
+            this.txtCosto.Validated += new System.EventHandler(this.txtCosto_Validated);
             // 
             // buttonSpecAny12
             // 
