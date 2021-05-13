@@ -69,7 +69,7 @@ namespace SGI.Views
         private void FamiliaList()
         {
             //this.dtFam = fa.List();
-            fa.List(dtFam);
+            fa.List(this.dtFam);
             cmbFamilia.DisplayMember = "descripcion";
             cmbFamilia.ValueMember = "codigo";
             cmbFamilia.DataSource = dtFam;
@@ -125,9 +125,9 @@ namespace SGI.Views
             pr.Rut_proveedor = txtRutProveedor.Text;
             pr.Codigo_barra = Convert.ToInt32(this.txtBarcode.Text.Trim());
             pr.Codigo_familia = cmbFamilia.SelectedValue.ToString();
-            pr.Fecha_vencimiento = dateFechaVencimiento.Value.Date;
+            pr.Fecha_vencimiento = Convert.ToDateTime(dateFechaVencimiento.Value);
             pr.Descripcion = txtDescripcion.Text.Trim(); // Trim es por si usuario ingresa espacios en el texto
-            pr.Unidad_medida = cmbUnidadMedida.SelectedValue.ToString();
+            pr.Unidad_medida = cmbUnidadMedida.SelectedItem.ToString();
             pr.Precio_compra = float.Parse(txtCosto.Text);
             pr.Precio_venta = float.Parse(txtPrecio.Text);
             pr.Stock = float.Parse(txtStock.Text);
@@ -139,6 +139,7 @@ namespace SGI.Views
                 pr.Imagen = NombreFoto + "jpg";
             }
 
+            
             clsSGI.Toast(this.secuencia_producto > 0 ? pr.Update() : pr.Create() );
 
             this.Data();
@@ -243,27 +244,27 @@ namespace SGI.Views
 
         private void txtPrecio_Validated(object sender, EventArgs e)
         {
-            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+            txtPrecio.Text = ClsUI.Divisa(txtPrecio.Text.Trim());
         }
 
         private void txtPrecioEspecial_Validated(object sender, EventArgs e)
         {
-            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+            txtPrecioEspecial.Text = ClsUI.Divisa(txtPrecioEspecial.Text.Trim());
         }
 
         private void txtStock_Validated(object sender, EventArgs e)
         {
-            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+            txtStock.Text = ClsUI.Divisa(txtStock.Text.Trim());
         }
 
         private void txtStockCritico_Validated(object sender, EventArgs e)
         {
-            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+            txtStockCritico.Text = ClsUI.Divisa(txtStockCritico.Text.Trim());
         }
 
         private void txtRaciones_Validated(object sender, EventArgs e)
         {
-            txtCosto.Text = ClsUI.Divisa(txtCosto.Text.Trim());
+            txtRaciones.Text = ClsUI.Divisa(txtRaciones.Text.Trim());
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

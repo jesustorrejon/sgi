@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="App\ClsCommon.cs" />
     <Compile Include="App\ClsUI.cs" />
-    <Compile Include="Common.cs" />
     <Compile Include="Data\DbHelper.cs" />
     <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\Producto.cs" />

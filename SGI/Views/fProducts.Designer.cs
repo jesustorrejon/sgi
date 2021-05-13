@@ -261,7 +261,7 @@ namespace SGI.Views
             this.kpList,
             this.kpEdit,
             this.kpFamily});
-            this.kryptonNavigator1.SelectedIndex = 0;
+            this.kryptonNavigator1.SelectedIndex = 1;
             this.kryptonNavigator1.Size = new System.Drawing.Size(1120, 510);
             this.kryptonNavigator1.TabIndex = 5;
             // 
@@ -468,6 +468,8 @@ namespace SGI.Views
             this.cmbUnidadMedida.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny24});
             this.cmbUnidadMedida.DropDownWidth = 405;
+            this.cmbUnidadMedida.Items.AddRange(new object[] {
+            "LT"});
             this.cmbUnidadMedida.Location = new System.Drawing.Point(594, 63);
             this.cmbUnidadMedida.Name = "cmbUnidadMedida";
             this.cmbUnidadMedida.Size = new System.Drawing.Size(168, 41);
@@ -479,13 +481,14 @@ namespace SGI.Views
             this.cmbUnidadMedida.StateCommon.ComboBox.Border.Rounding = 3;
             this.cmbUnidadMedida.StateCommon.ComboBox.Border.Width = 3;
             this.cmbUnidadMedida.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUnidadMedida.StateNormal.Item.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnidadMedida.TabIndex = 16;
             // 
             // buttonSpecAny24
             // 
             this.buttonSpecAny24.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
             this.buttonSpecAny24.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.buttonSpecAny24.Text = "UNIDAD DE MEDIDA";
+            this.buttonSpecAny24.Text = "U.M.";
             this.buttonSpecAny24.UniqueName = "F0E0AD4FDAC24CDCA19FAD6CB860C414";
             // 
             // txtRaciones
@@ -802,7 +805,7 @@ namespace SGI.Views
             this.cmbFamilia.StateCommon.ComboBox.Border.Rounding = 3;
             this.cmbFamilia.StateCommon.ComboBox.Border.Width = 3;
             this.cmbFamilia.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbFamilia.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFamilia.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFamilia.TabIndex = 7;
             // 
             // buttonSpecAny7
