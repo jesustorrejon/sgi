@@ -1,16 +1,14 @@
 /*----------------------------------------------------
 PROCEDIMIENTO PARA LISTAR REGISTROS DE FAMILIA
 ----------------------------------------------------*/
-create or replace procedure sp_familia_list
+create or replace procedure sp_familia_list(registros out sys_refcursor)
 is
-cursor cur_familia is select * from familia;
 begin
-    for i IN cur_familia loop
-        DBMS_OUTPUT.PUT_LINE(i.codigo || i.secuencia || i.descripcion);
-    end loop;
+    open registros for select codigo, descripcion from familia order by descripcion;
 end sp_familia_list;
 
-exec sp_familia_list;
+set serveroutput on;
+exec sp_familia_list(registros);
 
 /*----------------------------------------------------
 FIN PROCEDIMIENTO PARA LISTAR REGISTROS DE FAMILIA
