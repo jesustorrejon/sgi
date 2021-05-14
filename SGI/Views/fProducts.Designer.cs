@@ -41,8 +41,6 @@ namespace SGI.Views
             this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.kpList = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.dtGrid = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.COLCODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kpEdit = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.txtCodigo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.buttonSpecAny27 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -287,9 +285,6 @@ namespace SGI.Views
             this.dtGrid.AllowUserToDeleteRows = false;
             this.dtGrid.AllowUserToResizeRows = false;
             this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.COLCODIGO,
-            this.COLNAME});
             this.dtGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGrid.Location = new System.Drawing.Point(0, 0);
             this.dtGrid.Name = "dtGrid";
@@ -309,18 +304,6 @@ namespace SGI.Views
             this.dtGrid.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtGrid.TabIndex = 0;
             this.dtGrid.DoubleClick += new System.EventHandler(this.dtGrid_DoubleClick);
-            // 
-            // COLCODIGO
-            // 
-            this.COLCODIGO.HeaderText = "CODIGO";
-            this.COLCODIGO.Name = "COLCODIGO";
-            this.COLCODIGO.ReadOnly = true;
-            // 
-            // COLNAME
-            // 
-            this.COLNAME.HeaderText = "DESCRIPCION";
-            this.COLNAME.Name = "COLNAME";
-            this.COLNAME.ReadOnly = true;
             // 
             // kpEdit
             // 
@@ -1130,8 +1113,6 @@ namespace SGI.Views
         private ComponentFactory.Krypton.Navigator.KryptonPage kpEdit;
         private ComponentFactory.Krypton.Navigator.KryptonPage kpFamily;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dtGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLCODIGO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn COLNAME;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBarcode;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny5;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny6;

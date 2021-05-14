@@ -2,13 +2,15 @@
 PROCEDIMIENTO PARA LISTAR REGISTROS DE PRODUCTOS
 POR FAMILIA
 ----------------------------------------------------*/
-create or replace procedure sp_productos_data
+create or replace procedure sp_productos_data(registros out sys_refcursor)
 is
-cursor cur_productos_familia is select p.codigo AS ID
+begin
+    open registros for select p.secuencia AS NRO
+                                      ,p.codigo AS ID
                                       ,p.descripcion AS NOMBRE
                                       ,p.unidad_medida AS "UMEDIDA"
                                       ,p.codigo_barra AS "CODIGO"
-                                      ,f.descripcion AS CATEGORIA
+                                      ,f.descripcion AS FAMILIA
                                       ,p.fecha_vencimiento AS "VENCIMIENTO"
                                       ,p.precio_compra AS "COSTO"
                                       ,p.precio_venta AS "PRECIO"
@@ -18,21 +20,6 @@ cursor cur_productos_familia is select p.codigo AS ID
                                 from productos p, familia f
                                 where p.codigo_familia = f.codigo
                                 order by p.descripcion;
-begin
-    for i in cur_productos_familia loop
-        DBMS_OUTPUT.PUT_LINE(i.id || ' ' ||
-                             i.nombre || ' ' ||
-                             i.umedida || ' ' ||
-                             i.codigo || ' ' ||
-                             i.nombre || ' ' ||
-                             i.categoria || ' ' ||
-                             i.vencimiento || ' ' ||
-                             i.costo || ' ' ||
-                             i.precio || ' ' ||
-                             i.stock || ' ' ||
-                             i.alertas || ' ' ||
-                             i.imagen);
-    end loop;
 end;
 
 -- exec sp_productos_data;
@@ -128,12 +115,13 @@ begin
         unidad_medida, precio_compra, precio_venta, stock, stock_critico, imagen) 
         values 
         (upper(v_codigo), v_max_productos_secuencia, v_rut_proveedor, v_codigo_barra, upper(v_codigo_familia), v_secuencia_familia,
-        v_fecha_vencimiento, upper(v_descripcion), v_unidad_medida, v_precio_compra, v_precio_venta, v_stock, v_stock_critico, v_imagen);
+        v_fecha_vencimiento, upper(v_descripcion), upper(v_unidad_medida), v_precio_compra, v_precio_venta, v_stock, v_stock_critico, v_imagen);
     dbms_output.put_line('Registro creado');
     
 EXCEPTION
 when DUP_VAL_ON_INDEX then 
-    dbms_output.put_line('clave duplicada ERROR');
+    sp_productos_update(v_codigo,v_rut_proveedor,v_codigo_barra,upper(v_codigo_familia),v_fecha_vencimiento,upper(v_descripcion),v_unidad_medida,
+                        v_precio_compra,v_precio_venta,v_stock,v_stock_critico,v_imagen);
 end;
 
 

@@ -73,6 +73,7 @@ namespace CommonProject.Models
         {
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
+            DB.AddParameters("v_codigo_barra", this.Codigo_familia);
             DB.AddParameters("v_codigo_familia", this.Codigo_familia);
             DB.AddParameters("v_fecha_vencimiento", this.Fecha_vencimiento);
             DB.AddParameters("v_descripcion", this.Descripcion);

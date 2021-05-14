@@ -21,7 +21,7 @@ namespace SGI.Views
     public partial class fProducts : KryptonForm
     {
         #region 'VARIABLES'
-        private int secuencia_producto = 0;
+        //private int secuencia_producto = 0;
         private int secuencia_familia = 0;
 
         private readonly Producto pr = new Producto();
@@ -50,10 +50,23 @@ namespace SGI.Views
         #region 'Metodos'
         private void Data()
         {
-            this.dtGrid.Columns.Clear();
+            dtProd.Rows.Clear();
+
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_productos_data", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adapter = new OracleDataAdapter();
+            adapter.SelectCommand = comando;
+            adapter.Fill(dtProd);
+            ora.Close();
+
+            
             // Traer datos de procedimiento almacenado al datagrid
-            pr.Data(dtProd);
-            this.dtGrid.DataSource = dtProd;
+            //this.pr.Data(this.dtProd);
+            dtGrid.DataSource = dtProd;
 
             // Modificar altura del Datagrid en 40 puntos
             this.dtGrid.RowTemplate.Height = 40;
@@ -90,7 +103,7 @@ namespace SGI.Views
 
         private void ResetUI()
         {
-            this.secuencia_producto = 0;
+            //this.secuencia_producto = 0;
             this.txtCodigo.Clear();
             this.secuencia_familia = 0;
             this.txtDescripcion.Clear();
@@ -105,7 +118,7 @@ namespace SGI.Views
             this.txtRaciones.Text = "0.00";
             this.pBox.Image = null;
             this.pFamilia.Image = null;
-            this.txtDescripcion.Focus();
+            this.txtCodigo.Focus();
         }
 
         private void CreateorUpdate()
@@ -113,34 +126,35 @@ namespace SGI.Views
             // Seleccionar primera pestaña
             this.kryptonNavigator1.SelectedIndex = 1;
 
-            if (string.IsNullOrEmpty(this.txtDescripcion.Text))
+            if (string.IsNullOrEmpty(this.txtCodigo.Text))
             {
-                clsSGI.Toast("Ingrese el nombre del producto");
-                this.txtDescripcion.Focus();
+                clsSGI.Toast("Ingrese codigo del producto");
+                this.txtCodigo.Focus();
                 return;
             }
 
-            pr.Secuencia = this.secuencia_producto;
             pr.Codigo = txtCodigo.Text;
             pr.Rut_proveedor = txtRutProveedor.Text;
-            pr.Codigo_barra = Convert.ToInt32(this.txtBarcode.Text.Trim());
+            pr.Codigo_barra = 123123;//Convert.ToInt32(this.txtBarcode.Text.Trim());
             pr.Codigo_familia = cmbFamilia.SelectedValue.ToString();
             pr.Fecha_vencimiento = Convert.ToDateTime(dateFechaVencimiento.Value);
             pr.Descripcion = txtDescripcion.Text.Trim(); // Trim es por si usuario ingresa espacios en el texto
-            pr.Unidad_medida = cmbUnidadMedida.SelectedItem.ToString();
+            pr.Unidad_medida = "kg";//cmbUnidadMedida.SelectedItem.ToString();
             pr.Precio_compra = float.Parse(txtCosto.Text);
             pr.Precio_venta = float.Parse(txtPrecio.Text);
             pr.Stock = float.Parse(txtStock.Text);
             pr.Stock_critico = float.Parse(txtStockCritico.Text);
-            if (this.pBox.Image !=null)
+            if (this.pBox.Image != null)
             {
                 string NombreFoto = this.txtDescripcion.Text.Trim().Replace(" ", "_").ToLower() + DateTime.Now.Ticks.ToString();
                 pBox.Image.Save(ClsUI.ImagesProductoPath + NombreFoto + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                 pr.Imagen = NombreFoto + "jpg";
             }
+            else              
+                { pr.Imagen = "n"; }
 
-            
-            clsSGI.Toast(this.secuencia_producto > 0 ? pr.Update() : pr.Create() );
+            pr.Create();
+            //clsSGI.Toast(this.secuencia_producto > 0 ? pr.Update() : pr.Create() );
 
             this.Data();
 
@@ -280,13 +294,10 @@ namespace SGI.Views
 
         private void btnDestroy_Click(object sender, EventArgs e)
         {
-            if (this.secuencia_producto<0)
-            {
+            
                 clsSGI.Toast("Debe seleccionar el registro a eliminar");
                 this.kryptonNavigator1.SelectedIndex = 0;
                 this.dtGrid.Focus();
-                return;
-            }
 
             this.kryptonNavigator1.SelectedIndex = 1;
             fConfirm f = new fConfirm();
@@ -305,7 +316,7 @@ namespace SGI.Views
             try
             {
                 this.pBox.Image = null;
-                this.secuencia_producto = Convert.ToInt32(this.dtGrid.CurrentRow.Cells["NRO"].Value);
+               // this.secuencia_producto = Convert.ToInt32(this.dtGrid.CurrentRow.Cells["NRO"].Value);
                 this.txtCodigo.Text = this.dtGrid.CurrentRow.Cells["ID"].Value.ToString();
                 this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["NOMBRE"].Value.ToString();
                 this.cmbFamilia.Text = this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString();
