@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using CommonProject.Data;
 using System.Data;
 using System.Data.OracleClient;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace CommonProject.Models
 {
