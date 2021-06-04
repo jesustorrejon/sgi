@@ -259,7 +259,7 @@ namespace SGI.Views
             this.kpList,
             this.kpEdit,
             this.kpFamily});
-            this.kryptonNavigator1.SelectedIndex = 1;
+            this.kryptonNavigator1.SelectedIndex = 0;
             this.kryptonNavigator1.Size = new System.Drawing.Size(1120, 510);
             this.kryptonNavigator1.TabIndex = 5;
             // 

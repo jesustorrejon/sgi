@@ -35,7 +35,9 @@ namespace SGI.Views
         private Point dragFormPoint;
 
         private KryptonForm kform;
-
+        
+        
+        String connectionString = "DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;";
         #endregion
 
         public fProducts(/*KryptonForm kform*/)
@@ -50,22 +52,10 @@ namespace SGI.Views
         #region 'Metodos'
         private void Data()
         {
-            dtProd.Rows.Clear();
+            dtProd.Columns.Clear();
 
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("sp_productos_data", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
-
-            OracleDataAdapter adapter = new OracleDataAdapter();
-            adapter.SelectCommand = comando;
-            adapter.Fill(dtProd);
-            ora.Close();
-
-            
             // Traer datos de procedimiento almacenado al datagrid
-            //this.pr.Data(this.dtProd);
+            this.dtProd = this.pr.Data();
             dtGrid.DataSource = dtProd;
 
             // Modificar altura del Datagrid en 40 puntos
@@ -82,7 +72,7 @@ namespace SGI.Views
         private void FamiliaList()
         {
             //this.dtFam = fa.List();
-            fa.List(this.dtFam);
+            this.dtFam =  fa.List();
             cmbFamilia.DisplayMember = "descripcion";
             cmbFamilia.ValueMember = "codigo";
             cmbFamilia.DataSource = dtFam;
@@ -135,9 +125,9 @@ namespace SGI.Views
 
             pr.Codigo = txtCodigo.Text;
             pr.Rut_proveedor = txtRutProveedor.Text;
-            pr.Codigo_barra = 123123;//Convert.ToInt32(this.txtBarcode.Text.Trim());
+            pr.Codigo_barra = Convert.ToInt32(this.txtBarcode.Text.Trim());
             pr.Codigo_familia = cmbFamilia.SelectedValue.ToString();
-            pr.Fecha_vencimiento = Convert.ToDateTime(dateFechaVencimiento.Value);
+            pr.Fecha_vencimiento = dateFechaVencimiento.Value.ToShortDateString();
             pr.Descripcion = txtDescripcion.Text.Trim(); // Trim es por si usuario ingresa espacios en el texto
             pr.Unidad_medida = "kg";//cmbUnidadMedida.SelectedItem.ToString();
             pr.Precio_compra = float.Parse(txtCosto.Text);
@@ -152,15 +142,14 @@ namespace SGI.Views
             }
             else              
                 { pr.Imagen = "n"; }
-
-            pr.Create();
-            //clsSGI.Toast(this.secuencia_producto > 0 ? pr.Update() : pr.Create() );
+            
+            clsSGI.Toast(this.pr.SearchCode(txtCodigo.Text) > 0 ? pr.Create() : pr.Update() );
 
             this.Data();
 
             this.kryptonNavigator1.SelectedIndex = 0;
 
-            this.ResetUI();
+            //this.ResetUI();
         }
 
         private void Destroy()
@@ -281,6 +270,7 @@ namespace SGI.Views
             txtRaciones.Text = ClsUI.Divisa(txtRaciones.Text.Trim());
         }
 
+        [Obsolete]
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.ResetUI();

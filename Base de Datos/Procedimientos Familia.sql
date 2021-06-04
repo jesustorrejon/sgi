@@ -8,7 +8,7 @@ begin
 end sp_familia_list;
 
 set serveroutput on;
-exec sp_familia_list(registros);
+-- exec sp_familia_list(registros);
 
 /*----------------------------------------------------
 FIN PROCEDIMIENTO PARA LISTAR REGISTROS DE FAMILIA

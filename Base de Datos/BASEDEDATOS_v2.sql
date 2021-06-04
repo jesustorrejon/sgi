@@ -111,7 +111,7 @@ CREATE TABLE productos (
     precio_venta       FLOAT,
     stock              FLOAT,
     stock_critico      FLOAT,
-    imagen             BLOB
+    imagen             VARCHAR2(255 CHAR)
 );
 
 ALTER TABLE productos ADD CONSTRAINT productos_pk PRIMARY KEY ( codigo,

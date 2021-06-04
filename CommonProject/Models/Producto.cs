@@ -22,7 +22,7 @@ namespace CommonProject.Models
         private int codigo_barra;
         private string codigo_familia;
         private int secuencia_familia;
-        private DateTime fecha_vencimiento;
+        private string fecha_vencimiento;
         private string descripcion;
         private string unidad_medida;
         private float precio_compra;
@@ -37,7 +37,7 @@ namespace CommonProject.Models
         public int Codigo_barra { get => codigo_barra; set => codigo_barra = value; }
         public string Codigo_familia { get => codigo_familia; set => codigo_familia = value; }
         public int Secuencia_familia { get => secuencia_familia; set => secuencia_familia = value; }
-        public DateTime Fecha_vencimiento { get => fecha_vencimiento; set => fecha_vencimiento = value; }
+        public string Fecha_vencimiento { get => fecha_vencimiento; set => fecha_vencimiento = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public float Precio_compra { get => precio_compra; set => precio_compra = value; }
         public float Precio_venta { get => precio_venta; set => precio_venta = value; }
@@ -48,19 +48,10 @@ namespace CommonProject.Models
 
 
         // METODOS
-        public DataTable Data(DataTable dt_)
+        public DataTable Data()
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("sp_productos_data", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
-
-            OracleDataAdapter adapter = new OracleDataAdapter();
-            adapter.SelectCommand = comando;
-            adapter.Fill(dt_);
-            ora.Close();
-            return dt_;
+            DB.CommandType = CommandType.Text;
+            return DB.GetDataTable("select * from productos");
         }
 
         public DataTable DataOrders()
@@ -73,7 +64,7 @@ namespace CommonProject.Models
         {
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
-            DB.AddParameters("v_codigo_barra", this.Codigo_familia);
+            DB.AddParameters("v_codigo_barra", this.Codigo_barra);
             DB.AddParameters("v_codigo_familia", this.Codigo_familia);
             DB.AddParameters("v_fecha_vencimiento", this.Fecha_vencimiento);
             DB.AddParameters("v_descripcion", this.Descripcion);
@@ -128,7 +119,11 @@ namespace CommonProject.Models
         }
 
 
-
+        public int SearchCode(string codigo_producto)
+        {
+            DB.CommandType = CommandType.Text;
+            return DB.CRUD($"select * from productos where codigo = '{codigo_producto}'");
+        }
         /*public DataTable GetBarcode()
         {
             DataTable code = DB.GetDataTable("sp_barcode_next");

@@ -32,17 +32,12 @@ POR FAMILIA
 PROCEDIMIENTO PARA LISTAR REGISTROS DE PRODUCTOS
 POR FAMILIA PRESIONADA
 ----------------------------------------------------*/
-create or replace procedure sp_productos_data_touch( v_familia_codigo IN familia.codigo%type )
+create or replace procedure sp_productos_data_touch( v_familia_codigo IN familia.codigo%type, registros OUT sys_refcursor)
 is
-cursor cur_productos is select codigo, descripcion, unidad_medida, codigo_barra, fecha_vencimiento, precio_compra, precio_venta
+begin
+    open registros for select codigo, descripcion, unidad_medida, codigo_barra, fecha_vencimiento, precio_compra, precio_venta
                                ,stock, stock_critico, imagen
                                from productos where codigo_familia = upper(v_familia_codigo) order by descripcion desc;
-begin
-    for i in cur_productos loop
-        DBMS_OUTPUT.PUT_LINE(i.codigo || ' ' || i.descripcion || ' ' || i.codigo_barra || ' ' ||
-                             i.fecha_vencimiento || ' ' || i.precio_compra || ' ' || i.precio_venta
-                             || ' ' || i.stock || ' ' || i.stock_critico || ' ' || i.imagen );
-    end loop;
 end;
 
 -- exec sp_productos_data_touch('AB');
@@ -216,18 +211,13 @@ FIN PROCEDIMIENTO PARA BUSCAR REGISTRO DE PRODUCTOS
 PROCEDIMIENTO PARA BUSCAR REGISTRO DE PRODUCTOS
 POR CODIGO DE BARRA
 ----------------------------------------------------*/
-create or replace procedure sp_productos_search_bycode( v_codigo_barra IN productos.codigo_barra%type )
+create or replace procedure sp_productos_list(registros out sys_refcursor)
 is
-cursor cur_productos is select codigo, descripcion, unidad_medida, codigo_barra, fecha_vencimiento, precio_compra, precio_venta
-                               ,stock, stock_critico, imagen
-                               from productos where codigo_barra = v_codigo_barra;
 begin
-    for i in cur_productos loop
-        DBMS_OUTPUT.PUT_LINE(i.codigo || ' ' || i.descripcion || ' ' || i.codigo_barra || ' ' ||
-                             i.fecha_vencimiento || ' ' || i.precio_compra || ' ' || i.precio_venta
-                             || ' ' || i.stock || ' ' || i.stock_critico || ' ' || i.imagen );
-    end loop;
-end;
+    open registros for select codigo, secuencia, rut_proveedor, codigo_barra, codigo_familia
+                             , secuencia_familia, fecha_vencimiento, descripcion, unidad_medida 
+                             , precio_compra, precio_venta, stock, stock_critico, imagen from productos;
+end sp_productos_list;
 
 -- exec sp_productos_search_bycode(123456789);
 /*----------------------------------------------------
