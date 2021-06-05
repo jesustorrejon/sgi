@@ -41,9 +41,10 @@ namespace CommonProject.Models
 
         public string Create()
         {
+            DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_descripcion", this.Descripcion);
-            int res = DB.CRUD("sp_familia_create"); // Procedimiento almacenado agregar categoria
+            int res = DB.CRUD("sp_familia_create"); // Procedimiento almacenado agregar familia
 
             // mensaje con interpolacion de exito y fracaso, haciendo referencia a mensajes de la clase ClsCommon
             return (res == 1 ? $"{App.ClsCommon.RowCreated} {entity}" : App.ClsCommon.NoRowsAdded);
@@ -60,6 +61,7 @@ namespace CommonProject.Models
 
         public string Destroy()
         {
+            DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("V_codigo", this.Codigo);
             int res = DB.CRUD("sp_familia_destroy");
 

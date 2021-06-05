@@ -142,8 +142,10 @@ namespace SGI.Views
             }
             else              
                 { pr.Imagen = "n"; }
-            
-            clsSGI.Toast(this.pr.SearchCode(txtCodigo.Text) > 0 ? pr.Create() : pr.Update() );
+
+            clsSGI.Toast(pr.Create());
+
+            //clsSGI.Toast(pr.SearchCode(txtCodigo.Text) > 0 ? pr.Create() : pr.Update() );
 
             this.Data();
 
@@ -154,9 +156,7 @@ namespace SGI.Views
 
         private void Destroy()
         {
-            pr.Codigo = txtCodigo.Text;
-
-            clsSGI.Toast(pr.Destroy());
+            clsSGI.Toast(pr.Destroy(txtCodigo.Text));
 
             this.ResetUI();
 
@@ -284,7 +284,8 @@ namespace SGI.Views
 
         private void btnDestroy_Click(object sender, EventArgs e)
         {
-            
+            this.Destroy();
+            /*
                 clsSGI.Toast("Debe seleccionar el registro a eliminar");
                 this.kryptonNavigator1.SelectedIndex = 0;
                 this.dtGrid.Focus();
@@ -297,7 +298,8 @@ namespace SGI.Views
             {
                 this.Destroy();
                 ClsCommon.flag = 0;
-            }
+            }*/
+
         }
 
         private void dtGrid_DoubleClick(object sender, EventArgs e)
@@ -319,6 +321,32 @@ namespace SGI.Views
             {
 
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAddFamilia_Click(object sender, EventArgs e)
+        {
+            fa.Codigo = txtCodFamilia.Text;
+            fa.Descripcion = txtFamilia.Text;
+            clsSGI.Toast(fa.Create());
+            txtCodFamilia.Clear();
+            txtFamilia.Clear();
+            this.dtFam.Clear();
+            this.FamiliaList();
+        }
+
+        private void btnDelFamilia_Click(object sender, EventArgs e)
+        {
+            fa.Codigo = txtCodFamilia.Text;
+            clsSGI.Toast(fa.Destroy());
+            txtCodFamilia.Clear();
+            txtFamilia.Clear();
+            this.dtFam.Clear();
+            this.FamiliaList();
         }
     }
 }

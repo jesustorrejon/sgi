@@ -13,7 +13,7 @@ namespace SGI.Views
 {
     public partial class fToast : KryptonForm
     {
-        private int time2Exit = 30;
+        private int time2Exit = 10;
         private string msg = "";
 
 

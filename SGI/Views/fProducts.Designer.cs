@@ -142,6 +142,7 @@ namespace SGI.Views
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.NavigatorOverflow;
             this.btnExit.UniqueName = "46D981A75C00467722A544B6DCF452D9";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnAdd
             // 
@@ -259,7 +260,7 @@ namespace SGI.Views
             this.kpList,
             this.kpEdit,
             this.kpFamily});
-            this.kryptonNavigator1.SelectedIndex = 0;
+            this.kryptonNavigator1.SelectedIndex = 1;
             this.kryptonNavigator1.Size = new System.Drawing.Size(1120, 510);
             this.kryptonNavigator1.TabIndex = 5;
             // 
@@ -990,6 +991,7 @@ namespace SGI.Views
             this.btnDelFamilia.TabIndex = 8;
             this.btnDelFamilia.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnDelFamilia.Values.Image")));
             this.btnDelFamilia.Values.Text = "";
+            this.btnDelFamilia.Click += new System.EventHandler(this.btnDelFamilia_Click);
             // 
             // btnAddFamilia
             // 
@@ -1011,6 +1013,7 @@ namespace SGI.Views
             this.btnAddFamilia.TabIndex = 7;
             this.btnAddFamilia.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFamilia.Values.Image")));
             this.btnAddFamilia.Values.Text = "";
+            this.btnAddFamilia.Click += new System.EventHandler(this.btnAddFamilia_Click);
             // 
             // txtFamilia
             // 

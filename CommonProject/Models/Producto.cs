@@ -62,6 +62,7 @@ namespace CommonProject.Models
 
         public string Create()
         {
+            DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
             DB.AddParameters("v_codigo_barra", this.Codigo_barra);
@@ -74,6 +75,7 @@ namespace CommonProject.Models
             DB.AddParameters("v_stock", this.Stock);
             DB.AddParameters("v_stock_critico", this.Stock_critico);
             DB.AddParameters("v_imagen", this.Imagen);
+            
             int res = DB.CRUD("sp_productos_create");
 
             return (res == 1 ? $"{ App.ClsCommon.RowCreated } { entity } " : App.ClsCommon.NoRowsAdded);
@@ -97,12 +99,16 @@ namespace CommonProject.Models
             return (res == 1 ? $"{ App.ClsCommon.RowUpdated } { entity } " : App.ClsCommon.NoRowsUpdated);
         }
 
-        public string Destroy()
+        public string Destroy(string codigo_)
         {
+            DB.CommandType = CommandType.Text;
+            int res = DB.CRUD($"delete from productos where codigo = '{codigo_}'");
+            /*
             DB.AddParameters("v_codigo", this.Codigo);
             int res = DB.CRUD("sp_productos_destroy");
-
-            return (res == 1 ? $"{ App.ClsCommon.RowDeleted } { entity } " : App.ClsCommon.NoRowsDeleted);
+            */
+            return (res == 1 ? $"{ App.ClsCommon.RowDeleted } { entity } " : App.ClsCommon.NoRowsDeleted );
+            
         }
 
         public DataTable Search(string searchText)
