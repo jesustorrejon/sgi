@@ -109,14 +109,9 @@ begin
         (codigo, secuencia, rut_proveedor, codigo_barra, codigo_familia, secuencia_familia, fecha_vencimiento, descripcion,
         unidad_medida, precio_compra, precio_venta, stock, stock_critico, imagen) 
         values 
-        (upper(v_codigo), v_max_productos_secuencia, v_rut_proveedor, v_codigo_barra, upper(v_codigo_familia), v_secuencia_familia,
+        (upper(v_codigo), lpad(v_max_productos_secuencia,3,'0'), v_rut_proveedor, v_codigo_barra, upper(v_codigo_familia), v_secuencia_familia,
         v_fecha_vencimiento, upper(v_descripcion), upper(v_unidad_medida), v_precio_compra, v_precio_venta, v_stock, v_stock_critico, v_imagen);
     dbms_output.put_line('Registro creado');
-    
-EXCEPTION
-when DUP_VAL_ON_INDEX then 
-    sp_productos_update(v_codigo,v_rut_proveedor,v_codigo_barra,upper(v_codigo_familia),v_fecha_vencimiento,upper(v_descripcion),v_unidad_medida,
-                        v_precio_compra,v_precio_venta,v_stock,v_stock_critico,v_imagen);
 end;
 
 

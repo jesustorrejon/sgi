@@ -26,9 +26,12 @@ namespace SGI.Views
 
         private readonly Producto pr = new Producto();
         private readonly Familia fa = new Familia();
+        private readonly Proveedor prov = new Proveedor();
 
         private DataTable dtProd = new DataTable();
         private DataTable dtFam = new DataTable();
+        private DataTable dtUmedida = new DataTable();
+        private DataTable dtProveedor = new DataTable();
 
         private bool dragging = false;
         private Point dragCursorPoint;
@@ -36,8 +39,6 @@ namespace SGI.Views
 
         private KryptonForm kform;
         
-        
-        String connectionString = "DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;";
         #endregion
 
         public fProducts(/*KryptonForm kform*/)
@@ -49,9 +50,19 @@ namespace SGI.Views
 
         }
 
+
         #region 'Metodos'
         private void Data()
         {
+            this.dtProveedor = this.prov.List();
+
+            this.dtUmedida = this.pr.ListUMedida();
+            cmbUnidadMedida.DisplayMember = "descripcion";
+            cmbUnidadMedida.ValueMember = "codigo";
+            cmbUnidadMedida.DataSource = dtUmedida;
+
+            dateFechaVencimiento.Value = DateTime.Now;
+
             dtProd.Columns.Clear();
 
             // Traer datos de procedimiento almacenado al datagrid
@@ -71,13 +82,17 @@ namespace SGI.Views
 
         private void FamiliaList()
         {
-            //this.dtFam = fa.List();
             this.dtFam =  fa.List();
             cmbFamilia.DisplayMember = "descripcion";
             cmbFamilia.ValueMember = "codigo";
             cmbFamilia.DataSource = dtFam;
-            
-            if(dtFam !=null && dtFam.Rows.Count > 0)
+
+            this.dtProveedor = prov.List();
+            cmbProveedor.DisplayMember = "razon_social";
+            cmbProveedor.ValueMember = "rut";
+            cmbProveedor.DataSource = dtProveedor;
+
+            if (dtFam !=null && dtFam.Rows.Count > 0)
             {
                 this.klistFamilia.Items.Clear();
                 for (int i = 0; i <= dtFam.Rows.Count-1; i++)
@@ -98,7 +113,6 @@ namespace SGI.Views
             this.secuencia_familia = 0;
             this.txtDescripcion.Clear();
             this.txtBarcode.Clear();
-            this.txtRutProveedor.Clear();
             this.txtIngredientes.Clear();
             this.txtCosto.Text = "0.00";
             this.txtPrecio.Text = "0.00";
@@ -124,12 +138,12 @@ namespace SGI.Views
             }
 
             pr.Codigo = txtCodigo.Text;
-            pr.Rut_proveedor = txtRutProveedor.Text;
+            pr.Rut_proveedor = cmbProveedor.SelectedValue.ToString();
             pr.Codigo_barra = Convert.ToInt32(this.txtBarcode.Text.Trim());
-            pr.Codigo_familia = cmbFamilia.SelectedValue.ToString();
+            pr.Familia_Codigo = cmbFamilia.SelectedValue.ToString();
             pr.Fecha_vencimiento = dateFechaVencimiento.Value.ToShortDateString();
             pr.Descripcion = txtDescripcion.Text.Trim(); // Trim es por si usuario ingresa espacios en el texto
-            pr.Unidad_medida = "kg";//cmbUnidadMedida.SelectedItem.ToString();
+            pr.Unidad_medida = cmbUnidadMedida.SelectedValue.ToString();
             pr.Precio_compra = float.Parse(txtCosto.Text);
             pr.Precio_venta = float.Parse(txtPrecio.Text);
             pr.Stock = float.Parse(txtStock.Text);
@@ -309,10 +323,12 @@ namespace SGI.Views
             {
                 this.pBox.Image = null;
                // this.secuencia_producto = Convert.ToInt32(this.dtGrid.CurrentRow.Cells["NRO"].Value);
-                this.txtCodigo.Text = this.dtGrid.CurrentRow.Cells["ID"].Value.ToString();
-                this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["NOMBRE"].Value.ToString();
-                this.cmbFamilia.Text = this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString();
-                this.txtBarcode.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
+                this.txtCodigo.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
+                //this.txtBarcode.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
+                //this.txtDescripcion.Text = pr.Descripcion;
+                //this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["NOMBRE"].Value.ToString();
+                //this.cmbFamilia.Text = this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString();
+                
                 //this.dateFechaVencimiento = this.dtGrid.CurrentRow.Cells["VENCIMIENTO"].Value;
 
                 this.kryptonNavigator1.SelectedIndex = 1;

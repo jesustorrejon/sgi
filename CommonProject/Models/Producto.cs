@@ -17,11 +17,11 @@ namespace CommonProject.Models
         private readonly string entity = "Productos";
 
         private string codigo;
-        private int secuencia;
+        private string secuencia;
         private string rut_proveedor;
         private int codigo_barra;
-        private string codigo_familia;
-        private int secuencia_familia;
+        private string familia_codigo;
+        private string familia_secuencia;
         private string fecha_vencimiento;
         private string descripcion;
         private string unidad_medida;
@@ -32,11 +32,11 @@ namespace CommonProject.Models
         private string imagen;
 
         public string Codigo { get => codigo; set => codigo = value; }
-        public int Secuencia { get => secuencia; set => secuencia = value; }
+        public string Secuencia { get => secuencia; set => secuencia = value; }
         public string Rut_proveedor { get => rut_proveedor; set => rut_proveedor = value; }
         public int Codigo_barra { get => codigo_barra; set => codigo_barra = value; }
-        public string Codigo_familia { get => codigo_familia; set => codigo_familia = value; }
-        public int Secuencia_familia { get => secuencia_familia; set => secuencia_familia = value; }
+        public string Familia_Codigo { get => familia_codigo; set => familia_codigo = value; }
+        public string Familia_Secuencia { get => familia_secuencia; set => familia_secuencia = value; }
         public string Fecha_vencimiento { get => fecha_vencimiento; set => fecha_vencimiento = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public float Precio_compra { get => precio_compra; set => precio_compra = value; }
@@ -50,13 +50,38 @@ namespace CommonProject.Models
         // METODOS
         public DataTable Data()
         {
+            
+            //DB.CommandType = CommandType.StoredProcedure;
+            //return DB.GetDataTable("select p.codigo, p.descripcion, um.descripcion as UMedida from productos p join umedida um on p.unidad_medida = um.codigo;");
+            /*return DB.GetDataTable("select p.CODIGO, p.DESCRIPCION, u.DESCRIPCION as UMedida, f.DESCRIPCION as FAMILIA" +
+                                    "from productos p" +
+                                    "join unidad_medida u on p.unidad_medida = u.codigo" +
+                                    "join familia f on p.codigo_familia = f.codigo" +
+                                    "order by P.codigo");
+            */
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_productos_data", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+            
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            ora.Close();
+            return tabla;
+        }
+
+        public DataTable ListUMedida()
+        {
             DB.CommandType = CommandType.Text;
-            return DB.GetDataTable("select * from productos");
+            return DB.GetDataTable("select * from unidad_medida order by descripcion");
         }
 
         public DataTable DataOrders()
         {
-            DB.AddParameters("v_familia_codigo", this.Codigo_familia);
+            DB.AddParameters("v_familia_codigo", this.Familia_Codigo);
             return DB.GetDataTable("sp_productos_data_touch");
         }
 
@@ -66,7 +91,7 @@ namespace CommonProject.Models
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
             DB.AddParameters("v_codigo_barra", this.Codigo_barra);
-            DB.AddParameters("v_codigo_familia", this.Codigo_familia);
+            DB.AddParameters("v_codigo_familia", this.Familia_Codigo);
             DB.AddParameters("v_fecha_vencimiento", this.Fecha_vencimiento);
             DB.AddParameters("v_descripcion", this.Descripcion);
             DB.AddParameters("v_unidad_medida", this.Unidad_medida);
@@ -85,7 +110,7 @@ namespace CommonProject.Models
         {
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
-            DB.AddParameters("v_codigo_familia", this.Codigo_familia);
+            DB.AddParameters("v_codigo_familia", this.Familia_Codigo);
             DB.AddParameters("v_fecha_vencimiento", this.Fecha_vencimiento);
             DB.AddParameters("v_descripcion", this.Descripcion);
             DB.AddParameters("v_unidad_medida", this.Unidad_medida);
@@ -125,11 +150,13 @@ namespace CommonProject.Models
         }
 
 
-        public int SearchCode(string codigo_producto)
+        /*public DataTable SearchCode(string codigo_producto)
         {
-            DB.CommandType = CommandType.Text;
-            return DB.CRUD($"select * from productos where codigo = '{codigo_producto}'");
-        }
+            string query = $"select * from productos where codigo = '{codigo_producto}'";
+            DB.Command.CommandText = query;
+            DB.Reader(registro) = DB.Command.ExecuteReader();
+            
+        }*/
         /*public DataTable GetBarcode()
         {
             DataTable code = DB.GetDataTable("sp_barcode_next");

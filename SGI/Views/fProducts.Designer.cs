@@ -73,9 +73,6 @@ namespace SGI.Views
             this.txtIngredientes = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.buttonSpecAny10 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny11 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.txtRutProveedor = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny8 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny9 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmbFamilia = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.buttonSpecAny7 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.txtBarcode = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -97,6 +94,8 @@ namespace SGI.Views
             this.buttonSpecAny25 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny26 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.klistFamilia = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
+            this.cmbProveedor = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.buttonSpecAny31 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kpList)).BeginInit();
@@ -118,6 +117,7 @@ namespace SGI.Views
             this.KryptonHeaderGroup2.Panel.SuspendLayout();
             this.KryptonHeaderGroup2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pFamilia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonHeader1
@@ -309,6 +309,7 @@ namespace SGI.Views
             // kpEdit
             // 
             this.kpEdit.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+            this.kpEdit.Controls.Add(this.cmbProveedor);
             this.kpEdit.Controls.Add(this.txtCodigo);
             this.kpEdit.Controls.Add(this.lblFechaVencimiento);
             this.kpEdit.Controls.Add(this.dateFechaVencimiento);
@@ -321,7 +322,6 @@ namespace SGI.Views
             this.kpEdit.Controls.Add(this.txtPrecio);
             this.kpEdit.Controls.Add(this.txtCosto);
             this.kpEdit.Controls.Add(this.txtIngredientes);
-            this.kpEdit.Controls.Add(this.txtRutProveedor);
             this.kpEdit.Controls.Add(this.cmbFamilia);
             this.kpEdit.Controls.Add(this.txtBarcode);
             this.kpEdit.Controls.Add(this.txtDescripcion);
@@ -738,41 +738,6 @@ namespace SGI.Views
             this.buttonSpecAny11.Text = "INGREDIENTES";
             this.buttonSpecAny11.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
             // 
-            // txtRutProveedor
-            // 
-            this.txtRutProveedor.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny8,
-            this.buttonSpecAny9});
-            this.txtRutProveedor.Location = new System.Drawing.Point(594, 178);
-            this.txtRutProveedor.Multiline = true;
-            this.txtRutProveedor.Name = "txtRutProveedor";
-            this.txtRutProveedor.Size = new System.Drawing.Size(168, 54);
-            this.txtRutProveedor.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txtRutProveedor.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
-            this.txtRutProveedor.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtRutProveedor.StateCommon.Border.Rounding = 3;
-            this.txtRutProveedor.StateCommon.Border.Width = 3;
-            this.txtRutProveedor.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRutProveedor.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
-            this.txtRutProveedor.TabIndex = 8;
-            // 
-            // buttonSpecAny8
-            // 
-            this.buttonSpecAny8.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
-            this.buttonSpecAny8.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
-            this.buttonSpecAny8.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny8.Image")));
-            this.buttonSpecAny8.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
-            // 
-            // buttonSpecAny9
-            // 
-            this.buttonSpecAny9.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
-            this.buttonSpecAny9.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.buttonSpecAny9.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
-            this.buttonSpecAny9.Text = "RUT PROVEEDOR";
-            this.buttonSpecAny9.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
-            // 
             // cmbFamilia
             // 
             this.cmbFamilia.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
@@ -1056,6 +1021,32 @@ namespace SGI.Views
             this.klistFamilia.Size = new System.Drawing.Size(490, 420);
             this.klistFamilia.TabIndex = 0;
             // 
+            // cmbProveedor
+            // 
+            this.cmbProveedor.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny31});
+            this.cmbProveedor.DropDownWidth = 171;
+            this.cmbProveedor.Location = new System.Drawing.Point(410, 174);
+            this.cmbProveedor.Name = "cmbProveedor";
+            this.cmbProveedor.Size = new System.Drawing.Size(352, 41);
+            this.cmbProveedor.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
+            this.cmbProveedor.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.Gray;
+            this.cmbProveedor.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cmbProveedor.StateCommon.ComboBox.Border.Rounding = 3;
+            this.cmbProveedor.StateCommon.ComboBox.Border.Width = 3;
+            this.cmbProveedor.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProveedor.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProveedor.TabIndex = 21;
+            // 
+            // buttonSpecAny31
+            // 
+            this.buttonSpecAny31.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny31.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny31.Text = "PROVEEDOR";
+            this.buttonSpecAny31.UniqueName = "F0E0AD4FDAC24CDCA19FAD6CB860C414";
+            // 
             // fProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1096,6 +1087,7 @@ namespace SGI.Views
             ((System.ComponentModel.ISupportInitialize)(this.KryptonHeaderGroup2)).EndInit();
             this.KryptonHeaderGroup2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pFamilia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1125,9 +1117,6 @@ namespace SGI.Views
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtIngredientes;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny10;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny11;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtRutProveedor;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny8;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny9;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbFamilia;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny7;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtRaciones;
@@ -1170,5 +1159,7 @@ namespace SGI.Views
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtCodFamilia;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny29;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny30;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbProveedor;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny31;
     }
 }
