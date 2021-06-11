@@ -155,11 +155,11 @@ namespace SGI.Views
                 pr.Imagen = NombreFoto + "jpg";
             }
             else              
-                { pr.Imagen = "n"; }
+                { pr.Imagen = "N"; }
 
-            clsSGI.Toast(pr.Create());
-
-            //clsSGI.Toast(pr.SearchCode(txtCodigo.Text) > 0 ? pr.Create() : pr.Update() );
+            //clsSGI.Toast(pr.Create());
+            
+            clsSGI.Toast(pr.SearchCode(txtCodigo.Text) > 0 ? pr.Update() : pr.Create() );
 
             this.Data();
 
@@ -289,6 +289,7 @@ namespace SGI.Views
         {
             this.ResetUI();
             this.kryptonNavigator1.SelectedIndex = 1;
+            this.txtCodigo.Focus();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -321,14 +322,27 @@ namespace SGI.Views
             
             try
             {
+                
                 this.pBox.Image = null;
                // this.secuencia_producto = Convert.ToInt32(this.dtGrid.CurrentRow.Cells["NRO"].Value);
                 this.txtCodigo.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
-                //this.txtBarcode.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
-                //this.txtDescripcion.Text = pr.Descripcion;
+                this.txtBarcode.Text = this.dtGrid.CurrentRow.Cells["CODIGO BARRA"].Value.ToString();
+                this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
+                this.dateFechaVencimiento.Value = DateTime.Parse(this.dtGrid.CurrentRow.Cells["VENCIMIENTO"].Value.ToString());
+
+                this.cmbUnidadMedida.SelectedIndex = cmbUnidadMedida.FindStringExact(this.dtGrid.CurrentRow.Cells["U.M."].Value.ToString());
+                this.cmbProveedor.SelectedIndex = cmbProveedor.FindStringExact(this.dtGrid.CurrentRow.Cells["PROVEEDOR"].Value.ToString());
+                this.cmbFamilia.SelectedIndex = cmbFamilia.FindStringExact(this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString());
+
+                this.txtCosto.Text = this.dtGrid.CurrentRow.Cells["COSTO"].Value.ToString();
+                this.txtPrecio.Text = this.dtGrid.CurrentRow.Cells["PRECIO"].Value.ToString();
+                this.txtStock.Text = this.dtGrid.CurrentRow.Cells["STOCK"].Value.ToString();
+                this.txtStockCritico.Text = this.dtGrid.CurrentRow.Cells["STOCK CRITICO"].Value.ToString();
+
+
                 //this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["NOMBRE"].Value.ToString();
                 //this.cmbFamilia.Text = this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString();
-                
+
                 //this.dateFechaVencimiento = this.dtGrid.CurrentRow.Cells["VENCIMIENTO"].Value;
 
                 this.kryptonNavigator1.SelectedIndex = 1;
@@ -363,6 +377,38 @@ namespace SGI.Views
             txtFamilia.Clear();
             this.dtFam.Clear();
             this.FamiliaList();
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.kryptonNavigator1.SelectedIndex = 0;
+            if (txtSearch.Text == "")
+            {
+                this.Data();
+            }
+            else
+            {
+                dtProd.Columns.Clear();
+
+                // Traer datos de procedimiento almacenado al datagrid
+                this.dtProd = this.pr.Search(txtSearch.Text);
+                dtGrid.DataSource = dtProd;
+
+                // Modificar altura del Datagrid en 40 puntos
+                this.dtGrid.RowTemplate.Height = 40;
+                // Centrar vertical y horizontalmente el texto de la celda
+                this.dtGrid.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                // Centrar encabezados vertical y horizontalmente
+                this.dtGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                // Ajustar celdas segun contenido
+                this.dtGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
         }
     }
 }

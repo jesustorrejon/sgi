@@ -42,6 +42,8 @@ namespace SGI.Views
             this.kpList = new ComponentFactory.Krypton.Navigator.KryptonPage();
             this.dtGrid = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.kpEdit = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.cmbProveedor = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.buttonSpecAny31 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.txtCodigo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.buttonSpecAny27 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny28 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -94,8 +96,6 @@ namespace SGI.Views
             this.buttonSpecAny25 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny26 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.klistFamilia = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
-            this.cmbProveedor = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.buttonSpecAny31 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kpList)).BeginInit();
@@ -103,6 +103,7 @@ namespace SGI.Views
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kpEdit)).BeginInit();
             this.kpEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup1.Panel)).BeginInit();
             this.kryptonHeaderGroup1.Panel.SuspendLayout();
@@ -117,7 +118,6 @@ namespace SGI.Views
             this.KryptonHeaderGroup2.Panel.SuspendLayout();
             this.KryptonHeaderGroup2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pFamilia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonHeader1
@@ -228,6 +228,8 @@ namespace SGI.Views
             this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // buttonSpecAny1
             // 
@@ -260,7 +262,7 @@ namespace SGI.Views
             this.kpList,
             this.kpEdit,
             this.kpFamily});
-            this.kryptonNavigator1.SelectedIndex = 1;
+            this.kryptonNavigator1.SelectedIndex = 0;
             this.kryptonNavigator1.Size = new System.Drawing.Size(1120, 510);
             this.kryptonNavigator1.TabIndex = 5;
             // 
@@ -336,6 +338,32 @@ namespace SGI.Views
             this.kpEdit.TextTitle = "GESTIONAR";
             this.kpEdit.ToolTipTitle = "Page ToolTip";
             this.kpEdit.UniqueName = "A9B401EA03814B95368F6F2D6A4A3B50";
+            // 
+            // cmbProveedor
+            // 
+            this.cmbProveedor.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny31});
+            this.cmbProveedor.DropDownWidth = 171;
+            this.cmbProveedor.Location = new System.Drawing.Point(410, 174);
+            this.cmbProveedor.Name = "cmbProveedor";
+            this.cmbProveedor.Size = new System.Drawing.Size(352, 41);
+            this.cmbProveedor.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
+            this.cmbProveedor.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.Gray;
+            this.cmbProveedor.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cmbProveedor.StateCommon.ComboBox.Border.Rounding = 3;
+            this.cmbProveedor.StateCommon.ComboBox.Border.Width = 3;
+            this.cmbProveedor.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProveedor.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProveedor.TabIndex = 21;
+            // 
+            // buttonSpecAny31
+            // 
+            this.buttonSpecAny31.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny31.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny31.Text = "PROVEEDOR";
+            this.buttonSpecAny31.UniqueName = "F0E0AD4FDAC24CDCA19FAD6CB860C414";
             // 
             // txtCodigo
             // 
@@ -495,6 +523,7 @@ namespace SGI.Views
             this.txtRaciones.TabIndex = 15;
             this.txtRaciones.Text = "0.00";
             this.txtRaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRaciones.Visible = false;
             this.txtRaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRaciones_KeyPress);
             this.txtRaciones.Validated += new System.EventHandler(this.txtRaciones_Validated);
             // 
@@ -609,6 +638,7 @@ namespace SGI.Views
             this.txtPrecioEspecial.TabIndex = 12;
             this.txtPrecioEspecial.Text = "0.00";
             this.txtPrecioEspecial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecioEspecial.Visible = false;
             this.txtPrecioEspecial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioEspecial_KeyPress);
             this.txtPrecioEspecial.Validated += new System.EventHandler(this.txtPrecioEspecial_Validated);
             // 
@@ -722,6 +752,7 @@ namespace SGI.Views
             this.txtIngredientes.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIngredientes.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
             this.txtIngredientes.TabIndex = 9;
+            this.txtIngredientes.Visible = false;
             // 
             // buttonSpecAny10
             // 
@@ -1021,32 +1052,6 @@ namespace SGI.Views
             this.klistFamilia.Size = new System.Drawing.Size(490, 420);
             this.klistFamilia.TabIndex = 0;
             // 
-            // cmbProveedor
-            // 
-            this.cmbProveedor.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny31});
-            this.cmbProveedor.DropDownWidth = 171;
-            this.cmbProveedor.Location = new System.Drawing.Point(410, 174);
-            this.cmbProveedor.Name = "cmbProveedor";
-            this.cmbProveedor.Size = new System.Drawing.Size(352, 41);
-            this.cmbProveedor.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
-            this.cmbProveedor.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.Gray;
-            this.cmbProveedor.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.cmbProveedor.StateCommon.ComboBox.Border.Rounding = 3;
-            this.cmbProveedor.StateCommon.ComboBox.Border.Width = 3;
-            this.cmbProveedor.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbProveedor.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbProveedor.TabIndex = 21;
-            // 
-            // buttonSpecAny31
-            // 
-            this.buttonSpecAny31.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
-            this.buttonSpecAny31.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
-            this.buttonSpecAny31.Text = "PROVEEDOR";
-            this.buttonSpecAny31.UniqueName = "F0E0AD4FDAC24CDCA19FAD6CB860C414";
-            // 
             // fProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1072,6 +1077,7 @@ namespace SGI.Views
             ((System.ComponentModel.ISupportInitialize)(this.kpEdit)).EndInit();
             this.kpEdit.ResumeLayout(false);
             this.kpEdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup1.Panel)).EndInit();
             this.kryptonHeaderGroup1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup1)).EndInit();
@@ -1087,7 +1093,6 @@ namespace SGI.Views
             ((System.ComponentModel.ISupportInitialize)(this.KryptonHeaderGroup2)).EndInit();
             this.KryptonHeaderGroup2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pFamilia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

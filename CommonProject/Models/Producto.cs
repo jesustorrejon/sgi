@@ -108,8 +108,10 @@ namespace CommonProject.Models
 
         public string Update()
         {
+            DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_rut_proveedor", this.Rut_proveedor);
+            DB.AddParameters("v_codigo_barra",this.Codigo_barra);
             DB.AddParameters("v_codigo_familia", this.Familia_Codigo);
             DB.AddParameters("v_fecha_vencimiento", this.Fecha_vencimiento);
             DB.AddParameters("v_descripcion", this.Descripcion);
@@ -138,8 +140,19 @@ namespace CommonProject.Models
 
         public DataTable Search(string searchText)
         {
-            DB.AddParameters("v_palabra", searchText);
-            return DB.GetDataTable("sp_productos_search");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_productos_search", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("v_palabra", OracleType.VarChar).Value = searchText;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            ora.Close();
+            return tabla;
         }
 
         public DataTable SearchByCode(string barcode)
@@ -150,13 +163,18 @@ namespace CommonProject.Models
         }
 
 
-        /*public DataTable SearchCode(string codigo_producto)
+        public int SearchCode(string codigo_producto)
         {
-            string query = $"select * from productos where codigo = '{codigo_producto}'";
-            DB.Command.CommandText = query;
-            DB.Reader(registro) = DB.Command.ExecuteReader();
-            
-        }*/
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            OracleCommand comando = new OracleCommand();
+            comando.CommandText = $"select secuencia from productos where codigo = '{codigo_producto}'";
+            comando.Connection = ora;
+            ora.Open();
+            OracleDataReader dr = comando.ExecuteReader();
+            dr.Read();
+            int res = Convert.ToInt32(dr.GetString(0));
+            return res;
+        }
         /*public DataTable GetBarcode()
         {
             DataTable code = DB.GetDataTable("sp_barcode_next");
