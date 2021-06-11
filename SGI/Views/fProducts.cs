@@ -299,21 +299,23 @@ namespace SGI.Views
 
         private void btnDestroy_Click(object sender, EventArgs e)
         {
-            this.Destroy();
-            /*
+            //this.Destroy();
+            if(txtCodigo.Text == "")
+            {
                 clsSGI.Toast("Debe seleccionar el registro a eliminar");
                 this.kryptonNavigator1.SelectedIndex = 0;
                 this.dtGrid.Focus();
-
-            this.kryptonNavigator1.SelectedIndex = 1;
-            fConfirm f = new fConfirm();
+                return;
+            }
+            
+            fConfirm f = new fConfirm("Eliminar Registro");
             f.ShowDialog();
 
             if (ClsCommon.flag == 1)
             {
                 this.Destroy();
                 ClsCommon.flag = 0;
-            }*/
+            }
 
         }
 
