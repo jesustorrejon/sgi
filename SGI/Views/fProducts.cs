@@ -50,10 +50,23 @@ namespace SGI.Views
 
         }
 
+        private void ProveedorList()
+        {
+            this.dtProveedor = prov.List();
+            cmbProveedor.DisplayMember = "razon_social";
+            cmbProveedor.ValueMember = "rut";
+            cmbProveedor.DataSource = dtProveedor;
 
+            dtProveedor.Columns.Clear();
+
+            this.dtProveedor = this.prov.Data();
+            this.dtGridProveedores.DataSource = dtProveedor;
+        }
         #region 'Metodos'
         private void Data()
         {
+            
+
             this.dtProveedor = this.prov.List();
 
             this.dtUmedida = this.pr.ListUMedida();
@@ -86,11 +99,6 @@ namespace SGI.Views
             cmbFamilia.DisplayMember = "descripcion";
             cmbFamilia.ValueMember = "codigo";
             cmbFamilia.DataSource = dtFam;
-
-            this.dtProveedor = prov.List();
-            cmbProveedor.DisplayMember = "razon_social";
-            cmbProveedor.ValueMember = "rut";
-            cmbProveedor.DataSource = dtProveedor;
 
             if (dtFam !=null && dtFam.Rows.Count > 0)
             {

@@ -39,5 +39,11 @@ namespace CommonProject.Models
             return DB.GetDataTable("select * from proveedores order by razon_social");
         }
 
+        public DataTable Data()
+        {
+            DB.CommandType = CommandType.Text;
+            return DB.GetDataTable("select secuencia, rut, razon_social from proveedores order by secuencia");
+        }
+
     }
 }
