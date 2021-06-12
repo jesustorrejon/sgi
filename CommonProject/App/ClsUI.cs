@@ -18,9 +18,9 @@ namespace CommonProject.App
         public static bool SoloDecimal(object sender, KeyPressEventArgs e)
         {
             bool validar = false;
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ',')) validar = true;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) validar = true;
 
-            if ((e.KeyChar == '.') && ((sender as KryptonTextBox).Text.IndexOf(',') > -1)) validar = true;
+            if ((e.KeyChar == '.') && ((sender as KryptonTextBox).Text.IndexOf('.') > -1)) validar = true;
 
             return validar;
         }

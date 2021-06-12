@@ -34,7 +34,7 @@ namespace CommonProject.Data
 
 
         // Constructor
-       
+
         public DbHelper(string ConnectString, CommandType CommandType, DbProviders ProviderName = DbHelper.DbProviders.Oracle)
         {
             _provider = ProviderName;
@@ -159,8 +159,6 @@ namespace CommonProject.Data
 
             return Command.Parameters.Add(parm);
         }
-
-
 
 
 

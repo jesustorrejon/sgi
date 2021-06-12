@@ -52,7 +52,7 @@ namespace SGI.Views
             this.lblmsg.BackColor = System.Drawing.Color.Transparent;
             this.lblmsg.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmsg.ForeColor = System.Drawing.Color.White;
-            this.lblmsg.Location = new System.Drawing.Point(12, 9);
+            this.lblmsg.Location = new System.Drawing.Point(22, 8);
             this.lblmsg.Name = "lblmsg";
             this.lblmsg.Size = new System.Drawing.Size(274, 142);
             this.lblmsg.TabIndex = 1;
@@ -133,10 +133,10 @@ namespace SGI.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(431, 160);
-            this.Controls.Add(this.btnNo);
-            this.Controls.Add(this.btnYes);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblmsg);
+            this.Controls.Add(this.btnNo);
+            this.Controls.Add(this.btnYes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "fConfirm";

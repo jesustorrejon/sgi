@@ -54,6 +54,7 @@
     <Compile Include="Data\DbHelper.cs" />
     <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\Proveedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

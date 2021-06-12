@@ -8,7 +8,7 @@ begin
 end sp_familia_list;
 
 set serveroutput on;
-exec sp_familia_list(registros);
+-- exec sp_familia_list(registros);
 
 /*----------------------------------------------------
 FIN PROCEDIMIENTO PARA LISTAR REGISTROS DE FAMILIA
@@ -33,12 +33,8 @@ begin
         v_max_familia_secuencia := v_max_familia_secuencia + 1;
     end if;
     
-    insert into familia (codigo, secuencia, descripcion) values (upper(v_codigo), v_max_familia_secuencia, upper(v_descripcion));
+    insert into familia (codigo, secuencia, descripcion) values (upper(v_codigo), lpad(v_max_familia_secuencia,3,'0'), upper(v_descripcion));
     dbms_output.put_line('Registro creado');
-    
-EXCEPTION
-when DUP_VAL_ON_INDEX then 
-    dbms_output.put_line('clave duplicada ERROR');
 end;
 
 exec sp_familia_create('AB','ABARROTES');

@@ -26,16 +26,19 @@ namespace SGI.Views
 
         private readonly Producto pr = new Producto();
         private readonly Familia fa = new Familia();
+        private readonly Proveedor prov = new Proveedor();
 
         private DataTable dtProd = new DataTable();
         private DataTable dtFam = new DataTable();
+        private DataTable dtUmedida = new DataTable();
+        private DataTable dtProveedor = new DataTable();
 
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
         private KryptonForm kform;
-
+        
         #endregion
 
         public fProducts(/*KryptonForm kform*/)
@@ -47,25 +50,23 @@ namespace SGI.Views
 
         }
 
+
         #region 'Metodos'
         private void Data()
         {
-            dtProd.Rows.Clear();
+            this.dtProveedor = this.prov.List();
 
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("sp_productos_data", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+            this.dtUmedida = this.pr.ListUMedida();
+            cmbUnidadMedida.DisplayMember = "descripcion";
+            cmbUnidadMedida.ValueMember = "codigo";
+            cmbUnidadMedida.DataSource = dtUmedida;
 
-            OracleDataAdapter adapter = new OracleDataAdapter();
-            adapter.SelectCommand = comando;
-            adapter.Fill(dtProd);
-            ora.Close();
+            dateFechaVencimiento.Value = DateTime.Now;
 
-            
+            dtProd.Columns.Clear();
+
             // Traer datos de procedimiento almacenado al datagrid
-            //this.pr.Data(this.dtProd);
+            this.dtProd = this.pr.Data();
             dtGrid.DataSource = dtProd;
 
             // Modificar altura del Datagrid en 40 puntos
@@ -81,13 +82,17 @@ namespace SGI.Views
 
         private void FamiliaList()
         {
-            //this.dtFam = fa.List();
-            fa.List(this.dtFam);
+            this.dtFam =  fa.List();
             cmbFamilia.DisplayMember = "descripcion";
             cmbFamilia.ValueMember = "codigo";
             cmbFamilia.DataSource = dtFam;
-            
-            if(dtFam !=null && dtFam.Rows.Count > 0)
+
+            this.dtProveedor = prov.List();
+            cmbProveedor.DisplayMember = "razon_social";
+            cmbProveedor.ValueMember = "rut";
+            cmbProveedor.DataSource = dtProveedor;
+
+            if (dtFam !=null && dtFam.Rows.Count > 0)
             {
                 this.klistFamilia.Items.Clear();
                 for (int i = 0; i <= dtFam.Rows.Count-1; i++)
@@ -108,7 +113,6 @@ namespace SGI.Views
             this.secuencia_familia = 0;
             this.txtDescripcion.Clear();
             this.txtBarcode.Clear();
-            this.txtRutProveedor.Clear();
             this.txtIngredientes.Clear();
             this.txtCosto.Text = "0.00";
             this.txtPrecio.Text = "0.00";
@@ -134,12 +138,12 @@ namespace SGI.Views
             }
 
             pr.Codigo = txtCodigo.Text;
-            pr.Rut_proveedor = txtRutProveedor.Text;
-            pr.Codigo_barra = 123123;//Convert.ToInt32(this.txtBarcode.Text.Trim());
-            pr.Codigo_familia = cmbFamilia.SelectedValue.ToString();
-            pr.Fecha_vencimiento = Convert.ToDateTime(dateFechaVencimiento.Value);
+            pr.Rut_proveedor = cmbProveedor.SelectedValue.ToString();
+            pr.Codigo_barra = Convert.ToInt32(this.txtBarcode.Text.Trim());
+            pr.Familia_Codigo = cmbFamilia.SelectedValue.ToString();
+            pr.Fecha_vencimiento = dateFechaVencimiento.Value.ToShortDateString();
             pr.Descripcion = txtDescripcion.Text.Trim(); // Trim es por si usuario ingresa espacios en el texto
-            pr.Unidad_medida = "kg";//cmbUnidadMedida.SelectedItem.ToString();
+            pr.Unidad_medida = cmbUnidadMedida.SelectedValue.ToString();
             pr.Precio_compra = float.Parse(txtCosto.Text);
             pr.Precio_venta = float.Parse(txtPrecio.Text);
             pr.Stock = float.Parse(txtStock.Text);
@@ -151,23 +155,22 @@ namespace SGI.Views
                 pr.Imagen = NombreFoto + "jpg";
             }
             else              
-                { pr.Imagen = "n"; }
+                { pr.Imagen = "N"; }
 
-            pr.Create();
-            //clsSGI.Toast(this.secuencia_producto > 0 ? pr.Update() : pr.Create() );
+            //clsSGI.Toast(pr.Create());
+            
+            clsSGI.Toast(pr.SearchCode(txtCodigo.Text) > 0 ? pr.Update() : pr.Create() );
 
             this.Data();
 
             this.kryptonNavigator1.SelectedIndex = 0;
 
-            this.ResetUI();
+            //this.ResetUI();
         }
 
         private void Destroy()
         {
-            pr.Codigo = txtCodigo.Text;
-
-            clsSGI.Toast(pr.Destroy());
+            clsSGI.Toast(pr.Destroy(txtCodigo.Text));
 
             this.ResetUI();
 
@@ -281,10 +284,12 @@ namespace SGI.Views
             txtRaciones.Text = ClsUI.Divisa(txtRaciones.Text.Trim());
         }
 
+        [Obsolete]
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.ResetUI();
             this.kryptonNavigator1.SelectedIndex = 1;
+            this.txtCodigo.Focus();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -294,13 +299,16 @@ namespace SGI.Views
 
         private void btnDestroy_Click(object sender, EventArgs e)
         {
-            
+            //this.Destroy();
+            if(txtCodigo.Text == "")
+            {
                 clsSGI.Toast("Debe seleccionar el registro a eliminar");
                 this.kryptonNavigator1.SelectedIndex = 0;
                 this.dtGrid.Focus();
-
-            this.kryptonNavigator1.SelectedIndex = 1;
-            fConfirm f = new fConfirm();
+                return;
+            }
+            
+            fConfirm f = new fConfirm("Eliminar Registro");
             f.ShowDialog();
 
             if (ClsCommon.flag == 1)
@@ -308,6 +316,7 @@ namespace SGI.Views
                 this.Destroy();
                 ClsCommon.flag = 0;
             }
+
         }
 
         private void dtGrid_DoubleClick(object sender, EventArgs e)
@@ -315,12 +324,27 @@ namespace SGI.Views
             
             try
             {
+                
                 this.pBox.Image = null;
                // this.secuencia_producto = Convert.ToInt32(this.dtGrid.CurrentRow.Cells["NRO"].Value);
-                this.txtCodigo.Text = this.dtGrid.CurrentRow.Cells["ID"].Value.ToString();
-                this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["NOMBRE"].Value.ToString();
-                this.cmbFamilia.Text = this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString();
-                this.txtBarcode.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
+                this.txtCodigo.Text = this.dtGrid.CurrentRow.Cells["CODIGO"].Value.ToString();
+                this.txtBarcode.Text = this.dtGrid.CurrentRow.Cells["CODIGO BARRA"].Value.ToString();
+                this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["DESCRIPCION"].Value.ToString();
+                this.dateFechaVencimiento.Value = DateTime.Parse(this.dtGrid.CurrentRow.Cells["VENCIMIENTO"].Value.ToString());
+
+                this.cmbUnidadMedida.SelectedIndex = cmbUnidadMedida.FindStringExact(this.dtGrid.CurrentRow.Cells["U.M."].Value.ToString());
+                this.cmbProveedor.SelectedIndex = cmbProveedor.FindStringExact(this.dtGrid.CurrentRow.Cells["PROVEEDOR"].Value.ToString());
+                this.cmbFamilia.SelectedIndex = cmbFamilia.FindStringExact(this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString());
+
+                this.txtCosto.Text = this.dtGrid.CurrentRow.Cells["COSTO"].Value.ToString();
+                this.txtPrecio.Text = this.dtGrid.CurrentRow.Cells["PRECIO"].Value.ToString();
+                this.txtStock.Text = this.dtGrid.CurrentRow.Cells["STOCK"].Value.ToString();
+                this.txtStockCritico.Text = this.dtGrid.CurrentRow.Cells["STOCK CRITICO"].Value.ToString();
+
+
+                //this.txtDescripcion.Text = this.dtGrid.CurrentRow.Cells["NOMBRE"].Value.ToString();
+                //this.cmbFamilia.Text = this.dtGrid.CurrentRow.Cells["FAMILIA"].Value.ToString();
+
                 //this.dateFechaVencimiento = this.dtGrid.CurrentRow.Cells["VENCIMIENTO"].Value;
 
                 this.kryptonNavigator1.SelectedIndex = 1;
@@ -335,5 +359,61 @@ namespace SGI.Views
         {
             this.Close();
         }
+<<<<<<< HEAD
+=======
+
+        private void btnAddFamilia_Click(object sender, EventArgs e)
+        {
+            fa.Codigo = txtCodFamilia.Text;
+            fa.Descripcion = txtFamilia.Text;
+            clsSGI.Toast(fa.Create());
+            txtCodFamilia.Clear();
+            txtFamilia.Clear();
+            this.dtFam.Clear();
+            this.FamiliaList();
+        }
+
+        private void btnDelFamilia_Click(object sender, EventArgs e)
+        {
+            fa.Codigo = txtCodFamilia.Text;
+            clsSGI.Toast(fa.Destroy());
+            txtCodFamilia.Clear();
+            txtFamilia.Clear();
+            this.dtFam.Clear();
+            this.FamiliaList();
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.kryptonNavigator1.SelectedIndex = 0;
+            if (txtSearch.Text == "")
+            {
+                this.Data();
+            }
+            else
+            {
+                dtProd.Columns.Clear();
+
+                // Traer datos de procedimiento almacenado al datagrid
+                this.dtProd = this.pr.Search(txtSearch.Text);
+                dtGrid.DataSource = dtProd;
+
+                // Modificar altura del Datagrid en 40 puntos
+                this.dtGrid.RowTemplate.Height = 40;
+                // Centrar vertical y horizontalmente el texto de la celda
+                this.dtGrid.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                // Centrar encabezados vertical y horizontalmente
+                this.dtGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                // Ajustar celdas segun contenido
+                this.dtGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+        }
+>>>>>>> origin/main
     }
 }

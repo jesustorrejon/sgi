@@ -17,41 +17,34 @@ namespace CommonProject.Models
         private readonly string entity = "Familia";
 
         private string codigo;
-        private int secuencia;
+        private string secuencia;
         private string descripcion;
         private string imagen;
 
         // Getters y Setters
         public string Codigo { get => codigo; set => codigo = value; }
-        public int Secuencia { get => secuencia; set => secuencia = value; }
+        public string Secuencia { get => secuencia; set => secuencia = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public string Imagen { get => imagen; set => imagen = value; }
 
 
         // metodos
         // procedimiento almacenado para listar categorias de productos
-        public DataTable Data() => DB.GetDataTable("sp_familia_data");
+        public DataTable Data() => DB.GetDataTable("select * from familia");
 
-        public DataTable List(DataTable dt_) /*=> DB.GetDataTable("sp_familia_list");*/
+        public DataTable List()
         {
-             OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-             ora.Open();
-             OracleCommand comando = new OracleCommand("sp_familia_list", ora);
-             comando.CommandType = System.Data.CommandType.StoredProcedure;
-             comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
-
-             OracleDataAdapter adapter = new OracleDataAdapter();
-             adapter.SelectCommand = comando;
-             adapter.Fill(dt_);
-             ora.Close();
-             return dt_;
-         }
+            DB.CommandType = CommandType.Text;
+            return DB.GetDataTable("select * from familia");
+        }
+         
 
         public string Create()
         {
+            DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_descripcion", this.Descripcion);
-            int res = DB.CRUD("sp_familia_create"); // Procedimiento almacenado agregar categoria
+            int res = DB.CRUD("sp_familia_create"); // Procedimiento almacenado agregar familia
 
             // mensaje con interpolacion de exito y fracaso, haciendo referencia a mensajes de la clase ClsCommon
             return (res == 1 ? $"{App.ClsCommon.RowCreated} {entity}" : App.ClsCommon.NoRowsAdded);
@@ -68,6 +61,7 @@ namespace CommonProject.Models
 
         public string Destroy()
         {
+            DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("V_codigo", this.Codigo);
             int res = DB.CRUD("sp_familia_destroy");
 
