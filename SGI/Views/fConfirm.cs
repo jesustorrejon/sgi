@@ -35,7 +35,7 @@ namespace SGI.Views
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-            CommonProject.App.ClsCommon.flag = 1;
+            App.ClsCommon.flag = 1;
             this.Close();
         }
 
