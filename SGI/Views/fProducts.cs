@@ -55,14 +55,15 @@ namespace SGI.Views
 
         private void ProveedorList()
         {
+
             dtProveedor.Columns.Clear();
 
             //Llenar combobox de gestionar productos
             this.dtProveedor = prov.Data();
+
             cmbProveedor.DisplayMember = "razon_social";
             cmbProveedor.ValueMember = "rut";
             cmbProveedor.DataSource = dtProveedor;
-
 
 
             this.dtGridProveedores.DataSource = dtProveedor;
@@ -70,12 +71,12 @@ namespace SGI.Views
         #region 'Metodos'
         private void Data()
         {
+
             //Llenar combobox de Proveedores en gestionar productos
             this.dtProveedor = prov.Data();
             cmbProveedor.DisplayMember = "razon social";
             cmbProveedor.ValueMember = "rut";
             cmbProveedor.DataSource = dtProveedor;
-
 
             //Llenar combobox de Unidad de Medida en gestionar productos
             this.dtUmedida = this.pr.ListUMedida();
@@ -111,7 +112,9 @@ namespace SGI.Views
             cmbFamilia.ValueMember = "codigo";
             cmbFamilia.DataSource = dtFam;
 
+
             dtFamilia.DataSource = dtFam;
+
 
         }
 
@@ -451,6 +454,7 @@ namespace SGI.Views
             Close();
         }
 
+
         private void fProducts_FormClosed(object sender, FormClosedEventArgs e)
         {
             kform.Show();
@@ -511,6 +515,7 @@ namespace SGI.Views
                 this.dtGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
+
 
         private void dtGridProveedores_DoubleClick(object sender, EventArgs e)
         {
@@ -704,5 +709,7 @@ namespace SGI.Views
                 e.Handled = true;
             }
         }
+
+
     }
 }

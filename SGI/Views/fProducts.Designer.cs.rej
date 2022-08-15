@@ -1,0 +1,9 @@
+diff a/SGI/Views/fProducts.Designer.cs b/SGI/Views/fProducts.Designer.cs	(rejected hunks)
+@@ -142,6 +142,7 @@
+             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+             this.btnExit.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.NavigatorOverflow;
+             this.btnExit.UniqueName = "46D981A75C00467722A544B6DCF452D9";
++            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+             // 
+             // btnAdd
+             // 

@@ -482,6 +482,7 @@
         3MD9R1Hfm7H55k5enj4QQfkjwb8RjQPBEyeKSvyZaJ0IId4BA2i5SBcYnrgAAAAASUVORK5CYII=
 </value>
   </data>
+
   <data name="btnAddFamilia.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -564,7 +565,9 @@
         UQAAAABJRU5ErkJggg==
 </value>
   </data>
+
   <data name="btnSaveFamilia.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7pAAAO6QEOM0IcAAAAB3RJ
@@ -629,6 +632,7 @@
         SWMS7lGMyf+eOfc3v1GyeF0iurwAAAAASUVORK5CYII=
 </value>
   </data>
+
   <data name="btnAddProveedores.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -651,6 +655,7 @@
         BgAAAABJRU5ErkJggg==
 </value>
   </data>
+
   <data name="buttonSpecAny44.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -763,7 +768,9 @@
         3MD9R1Hfm7H55k5enj4QQfkjwb8RjQPBEyeKSvyZaJ0IId4BA2i5SBcYnrgAAAAASUVORK5CYII=
 </value>
   </data>
+
   <data name="btnDelProveedor.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7pAAAO6QEOM0IcAAAAB3RJ
@@ -785,7 +792,9 @@
         UQAAAABJRU5ErkJggg==
 </value>
   </data>
+
   <data name="btnSaveProveedor.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7pAAAO6QEOM0IcAAAAB3RJ
@@ -850,6 +859,7 @@
         2IO9ZLmA/z0M41+ZuVL90mxWyQAAAABJRU5ErkJggg==
 </value>
   </data>
+
   <data name="pbLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1261,4 +1271,5 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>45</value>
   </metadata>
+
 </root>
