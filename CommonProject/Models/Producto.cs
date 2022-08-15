@@ -50,15 +50,6 @@ namespace CommonProject.Models
         // METODOS
         public DataTable Data()
         {
-            
-            //DB.CommandType = CommandType.StoredProcedure;
-            //return DB.GetDataTable("select p.codigo, p.descripcion, um.descripcion as UMedida from productos p join umedida um on p.unidad_medida = um.codigo;");
-            /*return DB.GetDataTable("select p.CODIGO, p.DESCRIPCION, u.DESCRIPCION as UMedida, f.DESCRIPCION as FAMILIA" +
-                                    "from productos p" +
-                                    "join unidad_medida u on p.unidad_medida = u.codigo" +
-                                    "join familia f on p.codigo_familia = f.codigo" +
-                                    "order by P.codigo");
-            */
             OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
             ora.Open();
             OracleCommand comando = new OracleCommand("sp_productos_data", ora);
@@ -163,18 +154,21 @@ namespace CommonProject.Models
         }
 
 
-        public int SearchCode(string codigo_producto)
+        public bool SearchCode(string codigo_producto)
         {
             OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
-            OracleCommand comando = new OracleCommand();
-            comando.CommandText = $"select secuencia from productos where codigo = '{codigo_producto}'";
-            comando.Connection = ora;
             ora.Open();
-            OracleDataReader dr = comando.ExecuteReader();
-            dr.Read();
-            int res = Convert.ToInt32(dr.GetString(0));
-            return res;
+            OracleCommand comando = new OracleCommand($"select secuencia from productos where codigo = '{codigo_producto}'", ora);
+            comando.CommandType = System.Data.CommandType.Text;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            ora.Close();
+            return (tabla != null && tabla.Rows.Count > 0 ? true : false);
         }
+
         /*public DataTable GetBarcode()
         {
             DataTable code = DB.GetDataTable("sp_barcode_next");

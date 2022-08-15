@@ -30,12 +30,12 @@ namespace CommonProject.Models
 
         // metodos
         // procedimiento almacenado para listar categorias de productos
-        public DataTable Data() => DB.GetDataTable("select * from familia");
+        public DataTable Data() => DB.GetDataTable("select secuencia, codigo, descripcion, imagen from familia");
 
         public DataTable List()
         {
             DB.CommandType = CommandType.Text;
-            return DB.GetDataTable("select * from familia");
+            return DB.GetDataTable("select secuencia, codigo, descripcion, imagen from familia");
         }
          
 
@@ -44,6 +44,7 @@ namespace CommonProject.Models
             DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_descripcion", this.Descripcion);
+            DB.AddParameters("v_imagen", this.Imagen);
             int res = DB.CRUD("sp_familia_create"); // Procedimiento almacenado agregar familia
 
             // mensaje con interpolacion de exito y fracaso, haciendo referencia a mensajes de la clase ClsCommon
@@ -52,9 +53,11 @@ namespace CommonProject.Models
 
         public string Update()
         {
+            DB.CommandType = CommandType.StoredProcedure;
             DB.AddParameters("v_codigo", this.Codigo);
             DB.AddParameters("v_descripcion", this.Descripcion);
-            int res = DB.CRUD("sgi.sp_familia_update");
+            DB.AddParameters("v_imagen", this.Imagen);
+            int res = DB.CRUD("sp_familia_update");
 
             return (res == 1 ? $"{App.ClsCommon.RowUpdated} {entity}" : App.ClsCommon.NoRowsUpdated);
         }
@@ -68,36 +71,68 @@ namespace CommonProject.Models
             return (res == 1 ? $"{App.ClsCommon.RowDeleted} {entity}" : App.ClsCommon.NoRowsDeleted);
         }
 
-        public DataTable Search(string searchText)
-        {
-            DB.AddParameters("v_palabra", searchText);
-
-            return DB.GetDataTable("sp_familia_search");
-        }
-
 
         // metodo para NO permitir borrar categoria si tiene un producto asociado.
-        public bool HasProduct(int familia_codigo)
+        public bool HasProduct(string familia_codigo)
         {
-            DB.AddParameters("v_codigo", familia_codigo);
-            DataTable info = DB.GetDataTable("sp_familia_hasproduct");
+            //DB.AddParameters("v_codigo", familia_codigo);
+            //DataTable info = DB.GetDataTable("sp_familia_hasproduct");
 
             // si info es mayor a cero, dara como resultado true.
-            return (info != null && info.Rows.Count > 0 ? true : false);
+            //return (info != null && info.Rows.Count > 0 ? true : false);
+
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_familia_hasproduct", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("v_codigo_familia", OracleType.VarChar).Value = familia_codigo;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            ora.Close();
+            return (tabla != null && tabla.Rows.Count > 0 ? true : false);
         }
 
         // metodo para nor permitir duplicidad de categorias
-        public bool FamiliaExists(int descripcion)
+        public bool FamiliaExists(string familia_descripcion)
         {
-            DB.AddParameters("v_descripcion", descripcion);
-            DataTable info = DB.GetDataTable("sp_familia_exists");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_familia_exists", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("v_descripcion", OracleType.VarChar).Value = familia_descripcion;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            ora.Close();
+
 
             // si info es mayor a cero, dara como resultado true.
-            return (info != null && info.Rows.Count > 0 ? true : false);
+            return (tabla != null && tabla.Rows.Count > 0 ? true : false);
         }
 
+        public DataTable Search(string searchText)
+        {
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe; PASSWORD= sgi; USER ID= sgi;");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("sp_familia_search", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("v_palabra", OracleType.VarChar).Value = searchText;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
-
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            ora.Close();
+            return tabla;
+        }
 
     }
 }

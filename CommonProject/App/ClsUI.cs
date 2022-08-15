@@ -12,8 +12,8 @@ namespace CommonProject.App
 {
     public class ClsUI
     {
-        public static string ImagesProductoPath = Application.StartupPath + "\\imagenes\\productos";
-        public static string ImagesFamiliaPath = Application.StartupPath + "\\imagenes\\familias";
+        public static string ImagesProductoPath = Application.StartupPath + "\\imagenes\\productos\\";
+        public static string ImagesFamiliaPath = Application.StartupPath + "\\imagenes\\familias\\";
 
         public static bool SoloDecimal(object sender, KeyPressEventArgs e)
         {
@@ -21,6 +21,14 @@ namespace CommonProject.App
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) validar = true;
 
             if ((e.KeyChar == '.') && ((sender as KryptonTextBox).Text.IndexOf('.') > -1)) validar = true;
+
+            return validar;
+        }
+
+        public static bool SoloNumero(object sender, KeyPressEventArgs e)
+        {
+            bool validar = false;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) validar = true;
 
             return validar;
         }

@@ -1,4 +1,5 @@
-﻿using SGI.Views;
+﻿using ComponentFactory.Krypton.Toolkit;
+using SGI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace SGI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fProducts());
+            //Application.Run(new fProducts());
+            //Application.Run(new fCustomers());
+            Application.Run(new fLogin());
         }
     }
 }
