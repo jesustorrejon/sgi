@@ -29,6 +29,7 @@ namespace SGI.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fProducts));
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnExit = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -84,46 +85,54 @@ namespace SGI.Views
             this.buttonSpecAny3 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny4 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.kpFamily = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.btnAddFamilia = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dtFamilia = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.txtCodFamilia = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.buttonSpecAny29 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny30 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.KryptonHeaderGroup2 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.buttonSpecHeaderGroup1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.pFamilia = new System.Windows.Forms.PictureBox();
+            this.pBoxFamilia = new System.Windows.Forms.PictureBox();
             this.btnDelFamilia = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnAddFamilia = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnSaveFamilia = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtFamilia = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.buttonSpecAny25 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny26 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.klistFamilia = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
+
             this.kpProveedor = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.btnAddProveedores = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dtGridProveedores = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.txtContacto = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny44 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny45 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.txtTelefono = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny42 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny43 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.txtCiudad = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny40 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny41 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.txtComuna = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny38 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny39 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.txtDireccion = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny36 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny37 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.txtGiro = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.buttonSpecAny34 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.buttonSpecAny35 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+
             this.txtRutProveedor = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.buttonSpecAny8 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny9 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnDelProveedor = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnAddProveedor = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.txtProveedor = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+
+            this.btnSaveProveedor = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtRazonSocial = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.buttonSpecAny32 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.buttonSpecAny33 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny34 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny35 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny36 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny37 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonTextBox3 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny38 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny39 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonTextBox4 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny40 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny41 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny42 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny43 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.kryptonTextBox6 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny44 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.buttonSpecAny45 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.dtGridProveedores = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kpList)).BeginInit();
@@ -141,14 +150,18 @@ namespace SGI.Views
             ((System.ComponentModel.ISupportInitialize)(this.cmbFamilia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kpFamily)).BeginInit();
             this.kpFamily.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFamilia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KryptonHeaderGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KryptonHeaderGroup2.Panel)).BeginInit();
             this.KryptonHeaderGroup2.Panel.SuspendLayout();
             this.KryptonHeaderGroup2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pFamilia)).BeginInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxFamilia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kpProveedor)).BeginInit();
             this.kpProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProveedores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+
             this.SuspendLayout();
             // 
             // kryptonHeader1
@@ -167,6 +180,9 @@ namespace SGI.Views
             this.kryptonHeader1.Values.Description = "";
             this.kryptonHeader1.Values.Heading = "::: Productos";
             this.kryptonHeader1.Values.Image = null;
+            this.kryptonHeader1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kryptonHeader1_MouseDown);
+            this.kryptonHeader1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.kryptonHeader1_MouseMove);
+            this.kryptonHeader1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.kryptonHeader1_MouseUp);
             // 
             // btnExit
             // 
@@ -319,6 +335,7 @@ namespace SGI.Views
             this.dtGrid.AllowUserToAddRows = false;
             this.dtGrid.AllowUserToDeleteRows = false;
             this.dtGrid.AllowUserToResizeRows = false;
+            this.dtGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGrid.Location = new System.Drawing.Point(0, 0);
@@ -365,7 +382,7 @@ namespace SGI.Views
             this.kpEdit.MinimumSize = new System.Drawing.Size(50, 50);
             this.kpEdit.Name = "kpEdit";
             this.kpEdit.Size = new System.Drawing.Size(1118, 440);
-            this.kpEdit.Text = "GESTIONAR";
+            this.kpEdit.Text = "FICHA PRODUCTO";
             this.kpEdit.TextDescription = "";
             this.kpEdit.TextTitle = "GESTIONAR";
             this.kpEdit.ToolTipTitle = "Page ToolTip";
@@ -375,6 +392,7 @@ namespace SGI.Views
             // 
             this.cmbProveedor.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny31});
+            this.cmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProveedor.DropDownWidth = 171;
             this.cmbProveedor.Location = new System.Drawing.Point(410, 174);
             this.cmbProveedor.Name = "cmbProveedor";
@@ -402,6 +420,7 @@ namespace SGI.Views
             this.txtCodigo.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny27,
             this.buttonSpecAny28});
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(21, 10);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(233, 44);
@@ -415,6 +434,9 @@ namespace SGI.Views
             this.txtCodigo.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
             this.txtCodigo.TabIndex = 1;
+
+            this.txtCodigo.Text = "Automatico";
+
             // 
             // buttonSpecAny27
             // 
@@ -444,6 +466,7 @@ namespace SGI.Views
             // 
             // dateFechaVencimiento
             // 
+            this.dateFechaVencimiento.CalendarTodayDate = new System.DateTime(2021, 6, 17, 0, 0, 0, 0);
             this.dateFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateFechaVencimiento.Location = new System.Drawing.Point(149, 114);
             this.dateFechaVencimiento.Name = "dateFechaVencimiento";
@@ -495,6 +518,7 @@ namespace SGI.Views
             // 
             this.btnBuscarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarImagen.Image")));
             this.btnBuscarImagen.UniqueName = "E5E1A0F08650442F5398CFEBD2B7EDEC";
+            this.btnBuscarImagen.Click += new System.EventHandler(this.btnBuscarImagen_Click);
             // 
             // pBox
             // 
@@ -511,6 +535,7 @@ namespace SGI.Views
             // 
             this.cmbUnidadMedida.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny24});
+            this.cmbUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUnidadMedida.DropDownWidth = 405;
             this.cmbUnidadMedida.Items.AddRange(new object[] {
             "LT"});
@@ -617,6 +642,7 @@ namespace SGI.Views
             this.txtStock.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny22,
             this.buttonSpecAny23});
+            this.txtStock.Enabled = false;
             this.txtStock.Location = new System.Drawing.Point(860, 238);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(243, 44);
@@ -627,7 +653,8 @@ namespace SGI.Views
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txtStock.StateCommon.Border.Rounding = 1;
             this.txtStock.StateCommon.Border.Width = 3;
-            this.txtStock.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+            this.txtStock.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStock.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
             this.txtStock.TabIndex = 11;
             this.txtStock.Text = "0.00";
@@ -805,6 +832,7 @@ namespace SGI.Views
             // 
             this.cmbFamilia.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny7});
+            this.cmbFamilia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFamilia.DropDownWidth = 171;
             this.cmbFamilia.Location = new System.Drawing.Point(410, 120);
             this.cmbFamilia.Name = "cmbFamilia";
@@ -845,6 +873,9 @@ namespace SGI.Views
             this.txtBarcode.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarcode.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
             this.txtBarcode.TabIndex = 2;
+
+            this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
+
             // 
             // buttonSpecAny5
             // 
@@ -898,12 +929,13 @@ namespace SGI.Views
             // kpFamily
             // 
             this.kpFamily.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+            this.kpFamily.Controls.Add(this.btnAddFamilia);
+            this.kpFamily.Controls.Add(this.dtFamilia);
             this.kpFamily.Controls.Add(this.txtCodFamilia);
             this.kpFamily.Controls.Add(this.KryptonHeaderGroup2);
             this.kpFamily.Controls.Add(this.btnDelFamilia);
-            this.kpFamily.Controls.Add(this.btnAddFamilia);
+            this.kpFamily.Controls.Add(this.btnSaveFamilia);
             this.kpFamily.Controls.Add(this.txtFamilia);
-            this.kpFamily.Controls.Add(this.klistFamilia);
             this.kpFamily.Flags = 65534;
             this.kpFamily.ImageMedium = ((System.Drawing.Image)(resources.GetObject("kpFamily.ImageMedium")));
             this.kpFamily.LastVisibleSet = true;
@@ -915,6 +947,47 @@ namespace SGI.Views
             this.kpFamily.TextTitle = "FAMILIAS";
             this.kpFamily.ToolTipTitle = "Page ToolTip";
             this.kpFamily.UniqueName = "2F582F14F5BE407E3F94E6CFE69208FE";
+            // 
+            // btnAddFamilia
+            // 
+            this.btnAddFamilia.Location = new System.Drawing.Point(653, 60);
+            this.btnAddFamilia.Name = "btnAddFamilia";
+            this.btnAddFamilia.OverrideDefault.Back.Color1 = System.Drawing.Color.Black;
+            this.btnAddFamilia.OverrideDefault.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnAddFamilia.Size = new System.Drawing.Size(72, 48);
+            this.btnAddFamilia.StateCommon.Back.Color1 = System.Drawing.Color.Black;
+            this.btnAddFamilia.StateCommon.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnAddFamilia.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnAddFamilia.StateCommon.Border.Width = 0;
+            this.btnAddFamilia.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnAddFamilia.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnAddFamilia.StateNormal.Back.Color1 = System.Drawing.Color.Black;
+            this.btnAddFamilia.StateNormal.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnAddFamilia.TabIndex = 7;
+            this.btnAddFamilia.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFamilia.Values.Image")));
+            this.btnAddFamilia.Values.Text = "";
+            this.btnAddFamilia.Click += new System.EventHandler(this.btnAddFamilia_Click);
+            // 
+            // dtFamilia
+            // 
+            this.dtFamilia.AllowUserToAddRows = false;
+            this.dtFamilia.AllowUserToDeleteRows = false;
+            this.dtFamilia.AllowUserToOrderColumns = true;
+            this.dtFamilia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFamilia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtFamilia.Location = new System.Drawing.Point(14, 22);
+            this.dtFamilia.Name = "dtFamilia";
+            this.dtFamilia.ReadOnly = true;
+            this.dtFamilia.RowHeadersVisible = false;
+            this.dtFamilia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dtFamilia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtFamilia.Size = new System.Drawing.Size(481, 380);
+            this.dtFamilia.TabIndex = 6;
+            this.dtFamilia.DoubleClick += new System.EventHandler(this.dtFamilia_DoubleClick);
             // 
             // txtCodFamilia
             // 
@@ -933,7 +1006,7 @@ namespace SGI.Views
             this.txtCodFamilia.StateCommon.Border.Width = 3;
             this.txtCodFamilia.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodFamilia.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
-            this.txtCodFamilia.TabIndex = 19;
+            this.txtCodFamilia.TabIndex = 1;
             // 
             // buttonSpecAny29
             // 
@@ -960,7 +1033,7 @@ namespace SGI.Views
             // 
             // KryptonHeaderGroup2.Panel
             // 
-            this.KryptonHeaderGroup2.Panel.Controls.Add(this.pFamilia);
+            this.KryptonHeaderGroup2.Panel.Controls.Add(this.pBoxFamilia);
             this.KryptonHeaderGroup2.Size = new System.Drawing.Size(159, 152);
             this.KryptonHeaderGroup2.StateCommon.HeaderPrimary.Border.Color1 = System.Drawing.Color.Gray;
             this.KryptonHeaderGroup2.StateCommon.HeaderPrimary.Border.Color2 = System.Drawing.Color.Gray;
@@ -979,7 +1052,7 @@ namespace SGI.Views
             this.KryptonHeaderGroup2.StateNormal.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KryptonHeaderGroup2.StateNormal.HeaderPrimary.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.KryptonHeaderGroup2.StateNormal.HeaderPrimary.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.KryptonHeaderGroup2.TabIndex = 18;
+            this.KryptonHeaderGroup2.TabIndex = 3;
             this.KryptonHeaderGroup2.ValuesPrimary.Heading = "Imágen";
             this.KryptonHeaderGroup2.ValuesPrimary.Image = null;
             // 
@@ -987,25 +1060,26 @@ namespace SGI.Views
             // 
             this.buttonSpecHeaderGroup1.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecHeaderGroup1.Image")));
             this.buttonSpecHeaderGroup1.UniqueName = "E5E1A0F08650442F5398CFEBD2B7EDEC";
+            this.buttonSpecHeaderGroup1.Click += new System.EventHandler(this.buttonSpecHeaderGroup1_Click);
             // 
-            // pFamilia
+            // pBoxFamilia
             // 
-            this.pFamilia.BackColor = System.Drawing.Color.Transparent;
-            this.pFamilia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pFamilia.Location = new System.Drawing.Point(0, 0);
-            this.pFamilia.Name = "pFamilia";
-            this.pFamilia.Size = new System.Drawing.Size(151, 106);
-            this.pFamilia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pFamilia.TabIndex = 0;
-            this.pFamilia.TabStop = false;
+            this.pBoxFamilia.BackColor = System.Drawing.Color.Transparent;
+            this.pBoxFamilia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pBoxFamilia.Location = new System.Drawing.Point(0, 0);
+            this.pBoxFamilia.Name = "pBoxFamilia";
+            this.pBoxFamilia.Size = new System.Drawing.Size(151, 106);
+            this.pBoxFamilia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBoxFamilia.TabIndex = 0;
+            this.pBoxFamilia.TabStop = false;
             // 
             // btnDelFamilia
             // 
-            this.btnDelFamilia.Location = new System.Drawing.Point(656, 60);
+            this.btnDelFamilia.Location = new System.Drawing.Point(731, 60);
             this.btnDelFamilia.Name = "btnDelFamilia";
             this.btnDelFamilia.OverrideDefault.Back.Color1 = System.Drawing.Color.Black;
             this.btnDelFamilia.OverrideDefault.Back.Color2 = System.Drawing.Color.DimGray;
-            this.btnDelFamilia.Size = new System.Drawing.Size(72, 50);
+            this.btnDelFamilia.Size = new System.Drawing.Size(72, 48);
             this.btnDelFamilia.StateCommon.Back.Color1 = System.Drawing.Color.Black;
             this.btnDelFamilia.StateCommon.Back.Color2 = System.Drawing.Color.DimGray;
             this.btnDelFamilia.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -1016,32 +1090,32 @@ namespace SGI.Views
             this.btnDelFamilia.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnDelFamilia.StateNormal.Back.Color1 = System.Drawing.Color.Black;
             this.btnDelFamilia.StateNormal.Back.Color2 = System.Drawing.Color.DimGray;
-            this.btnDelFamilia.TabIndex = 8;
+            this.btnDelFamilia.TabIndex = 5;
             this.btnDelFamilia.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnDelFamilia.Values.Image")));
             this.btnDelFamilia.Values.Text = "";
             this.btnDelFamilia.Click += new System.EventHandler(this.btnDelFamilia_Click);
             // 
-            // btnAddFamilia
+            // btnSaveFamilia
             // 
-            this.btnAddFamilia.Location = new System.Drawing.Point(575, 60);
-            this.btnAddFamilia.Name = "btnAddFamilia";
-            this.btnAddFamilia.OverrideDefault.Back.Color1 = System.Drawing.Color.Black;
-            this.btnAddFamilia.OverrideDefault.Back.Color2 = System.Drawing.Color.DimGray;
-            this.btnAddFamilia.Size = new System.Drawing.Size(72, 50);
-            this.btnAddFamilia.StateCommon.Back.Color1 = System.Drawing.Color.Black;
-            this.btnAddFamilia.StateCommon.Back.Color2 = System.Drawing.Color.DimGray;
-            this.btnAddFamilia.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnSaveFamilia.Location = new System.Drawing.Point(575, 60);
+            this.btnSaveFamilia.Name = "btnSaveFamilia";
+            this.btnSaveFamilia.OverrideDefault.Back.Color1 = System.Drawing.Color.Black;
+            this.btnSaveFamilia.OverrideDefault.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnSaveFamilia.Size = new System.Drawing.Size(72, 48);
+            this.btnSaveFamilia.StateCommon.Back.Color1 = System.Drawing.Color.Black;
+            this.btnSaveFamilia.StateCommon.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnSaveFamilia.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnAddFamilia.StateCommon.Border.Width = 0;
-            this.btnAddFamilia.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnAddFamilia.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnAddFamilia.StateNormal.Back.Color1 = System.Drawing.Color.Black;
-            this.btnAddFamilia.StateNormal.Back.Color2 = System.Drawing.Color.DimGray;
-            this.btnAddFamilia.TabIndex = 7;
-            this.btnAddFamilia.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFamilia.Values.Image")));
-            this.btnAddFamilia.Values.Text = "";
-            this.btnAddFamilia.Click += new System.EventHandler(this.btnAddFamilia_Click);
+            this.btnSaveFamilia.StateCommon.Border.Width = 0;
+            this.btnSaveFamilia.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnSaveFamilia.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnSaveFamilia.StateNormal.Back.Color1 = System.Drawing.Color.Black;
+            this.btnSaveFamilia.StateNormal.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnSaveFamilia.TabIndex = 4;
+            this.btnSaveFamilia.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveFamilia.Values.Image")));
+            this.btnSaveFamilia.Values.Text = "";
+            this.btnSaveFamilia.Click += new System.EventHandler(this.btnSaveFamilia_Click);
             // 
             // txtFamilia
             // 
@@ -1060,7 +1134,7 @@ namespace SGI.Views
             this.txtFamilia.StateCommon.Border.Width = 3;
             this.txtFamilia.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFamilia.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
-            this.txtFamilia.TabIndex = 6;
+            this.txtFamilia.TabIndex = 2;
             // 
             // buttonSpecAny25
             // 
@@ -1077,12 +1151,404 @@ namespace SGI.Views
             this.buttonSpecAny26.Text = "DESCRIPCION FAMILIA";
             this.buttonSpecAny26.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
             // 
-            // klistFamilia
+            // kpProveedor
             // 
-            this.klistFamilia.Location = new System.Drawing.Point(9, 10);
-            this.klistFamilia.Name = "klistFamilia";
-            this.klistFamilia.Size = new System.Drawing.Size(490, 420);
-            this.klistFamilia.TabIndex = 0;
+            this.kpProveedor.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+            this.kpProveedor.Controls.Add(this.btnAddProveedores);
+            this.kpProveedor.Controls.Add(this.dtGridProveedores);
+            this.kpProveedor.Controls.Add(this.txtContacto);
+            this.kpProveedor.Controls.Add(this.txtTelefono);
+            this.kpProveedor.Controls.Add(this.txtCiudad);
+            this.kpProveedor.Controls.Add(this.txtComuna);
+            this.kpProveedor.Controls.Add(this.txtDireccion);
+            this.kpProveedor.Controls.Add(this.txtGiro);
+            this.kpProveedor.Controls.Add(this.txtRutProveedor);
+            this.kpProveedor.Controls.Add(this.btnDelProveedor);
+            this.kpProveedor.Controls.Add(this.btnSaveProveedor);
+            this.kpProveedor.Controls.Add(this.txtRazonSocial);
+            this.kpProveedor.Flags = 65534;
+            this.kpProveedor.ImageMedium = ((System.Drawing.Image)(resources.GetObject("kpProveedor.ImageMedium")));
+            this.kpProveedor.LastVisibleSet = true;
+            this.kpProveedor.MinimumSize = new System.Drawing.Size(50, 50);
+            this.kpProveedor.Name = "kpProveedor";
+            this.kpProveedor.Size = new System.Drawing.Size(1118, 440);
+            this.kpProveedor.Text = "PROVEEDORES";
+            this.kpProveedor.TextDescription = "";
+            this.kpProveedor.TextTitle = "PROVEEDORES";
+            this.kpProveedor.ToolTipTitle = "Page ToolTip";
+            this.kpProveedor.UniqueName = "3AA5226DD608449928ADD559EE90ABB3";
+            // 
+            // btnAddProveedores
+            // 
+            this.btnAddProveedores.Location = new System.Drawing.Point(1028, 22);
+            this.btnAddProveedores.Name = "btnAddProveedores";
+            this.btnAddProveedores.OverrideDefault.Back.Color1 = System.Drawing.Color.Black;
+            this.btnAddProveedores.OverrideDefault.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnAddProveedores.Size = new System.Drawing.Size(75, 56);
+            this.btnAddProveedores.StateCommon.Back.Color1 = System.Drawing.Color.Black;
+            this.btnAddProveedores.StateCommon.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnAddProveedores.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnAddProveedores.StateCommon.Border.Width = 0;
+            this.btnAddProveedores.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnAddProveedores.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnAddProveedores.StateNormal.Back.Color1 = System.Drawing.Color.Black;
+            this.btnAddProveedores.StateNormal.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnAddProveedores.TabIndex = 12;
+            this.btnAddProveedores.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProveedores.Values.Image")));
+            this.btnAddProveedores.Values.Text = "";
+            this.btnAddProveedores.Click += new System.EventHandler(this.btnAddProveedores_Click);
+            // 
+            // dtGridProveedores
+            // 
+            this.dtGridProveedores.AllowUserToAddRows = false;
+            this.dtGridProveedores.AllowUserToDeleteRows = false;
+            this.dtGridProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridProveedores.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtGridProveedores.Location = new System.Drawing.Point(0, 242);
+            this.dtGridProveedores.Name = "dtGridProveedores";
+            this.dtGridProveedores.ReadOnly = true;
+            this.dtGridProveedores.RowHeadersVisible = false;
+            this.dtGridProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridProveedores.Size = new System.Drawing.Size(1118, 198);
+            this.dtGridProveedores.TabIndex = 9;
+            this.dtGridProveedores.DoubleClick += new System.EventHandler(this.dtGridProveedores_DoubleClick);
+            // 
+            // txtContacto
+            // 
+            this.txtContacto.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny44,
+            this.buttonSpecAny45});
+            this.txtContacto.Location = new System.Drawing.Point(734, 164);
+            this.txtContacto.Name = "txtContacto";
+            this.txtContacto.Size = new System.Drawing.Size(280, 44);
+            this.txtContacto.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtContacto.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtContacto.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtContacto.StateCommon.Border.Rounding = 1;
+            this.txtContacto.StateCommon.Border.Width = 3;
+            this.txtContacto.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContacto.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtContacto.TabIndex = 8;
+            // 
+            // buttonSpecAny44
+            // 
+            this.buttonSpecAny44.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny44.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny44.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny44.Image")));
+            this.buttonSpecAny44.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny45
+            // 
+            this.buttonSpecAny45.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny45.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny45.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny45.Text = "CONTACTO";
+            this.buttonSpecAny45.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny42,
+            this.buttonSpecAny43});
+            this.txtTelefono.Location = new System.Drawing.Point(734, 113);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(280, 44);
+            this.txtTelefono.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtTelefono.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtTelefono.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtTelefono.StateCommon.Border.Rounding = 1;
+            this.txtTelefono.StateCommon.Border.Width = 3;
+            this.txtTelefono.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtTelefono.TabIndex = 7;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
+            // 
+            // buttonSpecAny42
+            // 
+            this.buttonSpecAny42.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny42.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny42.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny42.Image")));
+            this.buttonSpecAny42.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny43
+            // 
+            this.buttonSpecAny43.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny43.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny43.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny43.Text = "TELEFONO";
+            this.buttonSpecAny43.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // txtCiudad
+            // 
+            this.txtCiudad.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny40,
+            this.buttonSpecAny41});
+            this.txtCiudad.Location = new System.Drawing.Point(352, 164);
+            this.txtCiudad.Name = "txtCiudad";
+            this.txtCiudad.Size = new System.Drawing.Size(295, 44);
+            this.txtCiudad.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtCiudad.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtCiudad.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtCiudad.StateCommon.Border.Rounding = 1;
+            this.txtCiudad.StateCommon.Border.Width = 3;
+            this.txtCiudad.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCiudad.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtCiudad.TabIndex = 6;
+            // 
+            // buttonSpecAny40
+            // 
+            this.buttonSpecAny40.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny40.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny40.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny40.Image")));
+            this.buttonSpecAny40.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny41
+            // 
+            this.buttonSpecAny41.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny41.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny41.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny41.Text = "CIUDAD";
+            this.buttonSpecAny41.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // txtComuna
+            // 
+            this.txtComuna.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny38,
+            this.buttonSpecAny39});
+            this.txtComuna.Location = new System.Drawing.Point(22, 164);
+            this.txtComuna.Name = "txtComuna";
+            this.txtComuna.Size = new System.Drawing.Size(291, 44);
+            this.txtComuna.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtComuna.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtComuna.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtComuna.StateCommon.Border.Rounding = 1;
+            this.txtComuna.StateCommon.Border.Width = 3;
+            this.txtComuna.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComuna.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtComuna.TabIndex = 5;
+            // 
+            // buttonSpecAny38
+            // 
+            this.buttonSpecAny38.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny38.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny38.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny38.Image")));
+            this.buttonSpecAny38.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny39
+            // 
+            this.buttonSpecAny39.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny39.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny39.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny39.Text = "COMUNA";
+            this.buttonSpecAny39.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny36,
+            this.buttonSpecAny37});
+            this.txtDireccion.Location = new System.Drawing.Point(21, 113);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(455, 44);
+            this.txtDireccion.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtDireccion.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtDireccion.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtDireccion.StateCommon.Border.Rounding = 1;
+            this.txtDireccion.StateCommon.Border.Width = 3;
+            this.txtDireccion.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtDireccion.TabIndex = 4;
+            // 
+            // buttonSpecAny36
+            // 
+            this.buttonSpecAny36.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny36.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny36.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny36.Image")));
+            this.buttonSpecAny36.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny37
+            // 
+            this.buttonSpecAny37.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny37.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny37.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny37.Text = "DIRECCION";
+            this.buttonSpecAny37.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // txtGiro
+            // 
+            this.txtGiro.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny34,
+            this.buttonSpecAny35});
+            this.txtGiro.Location = new System.Drawing.Point(557, 64);
+            this.txtGiro.Name = "txtGiro";
+            this.txtGiro.Size = new System.Drawing.Size(457, 44);
+            this.txtGiro.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtGiro.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtGiro.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtGiro.StateCommon.Border.Rounding = 1;
+            this.txtGiro.StateCommon.Border.Width = 3;
+            this.txtGiro.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiro.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtGiro.TabIndex = 3;
+            // 
+            // buttonSpecAny34
+            // 
+            this.buttonSpecAny34.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny34.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny34.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny34.Image")));
+            this.buttonSpecAny34.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny35
+            // 
+            this.buttonSpecAny35.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny35.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny35.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny35.Text = "GIRO";
+            this.buttonSpecAny35.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // txtRutProveedor
+            // 
+            this.txtRutProveedor.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny8,
+            this.buttonSpecAny9});
+            this.txtRutProveedor.Location = new System.Drawing.Point(20, 13);
+            this.txtRutProveedor.Name = "txtRutProveedor";
+            this.txtRutProveedor.Size = new System.Drawing.Size(293, 44);
+            this.txtRutProveedor.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtRutProveedor.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtRutProveedor.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtRutProveedor.StateCommon.Border.Rounding = 1;
+            this.txtRutProveedor.StateCommon.Border.Width = 3;
+            this.txtRutProveedor.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutProveedor.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtRutProveedor.TabIndex = 1;
+            this.txtRutProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRutProveedor_KeyPress);
+            this.txtRutProveedor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRutProveedor_KeyUp);
+            // 
+            // buttonSpecAny8
+            // 
+            this.buttonSpecAny8.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny8.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny8.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny8.Image")));
+            this.buttonSpecAny8.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny9
+            // 
+            this.buttonSpecAny9.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny9.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny9.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny9.Text = "RUT";
+            this.buttonSpecAny9.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // btnDelProveedor
+            // 
+            this.btnDelProveedor.Location = new System.Drawing.Point(1031, 158);
+            this.btnDelProveedor.Name = "btnDelProveedor";
+            this.btnDelProveedor.OverrideDefault.Back.Color1 = System.Drawing.Color.Black;
+            this.btnDelProveedor.OverrideDefault.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnDelProveedor.Size = new System.Drawing.Size(72, 50);
+            this.btnDelProveedor.StateCommon.Back.Color1 = System.Drawing.Color.Black;
+            this.btnDelProveedor.StateCommon.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnDelProveedor.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnDelProveedor.StateCommon.Border.Width = 0;
+            this.btnDelProveedor.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnDelProveedor.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnDelProveedor.StateNormal.Back.Color1 = System.Drawing.Color.Black;
+            this.btnDelProveedor.StateNormal.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnDelProveedor.TabIndex = 11;
+            this.btnDelProveedor.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnDelProveedor.Values.Image")));
+            this.btnDelProveedor.Values.Text = "";
+            this.btnDelProveedor.Click += new System.EventHandler(this.btnDelProveedor_Click);
+            // 
+            // btnSaveProveedor
+            // 
+            this.btnSaveProveedor.Location = new System.Drawing.Point(1031, 91);
+            this.btnSaveProveedor.Name = "btnSaveProveedor";
+            this.btnSaveProveedor.OverrideDefault.Back.Color1 = System.Drawing.Color.Black;
+            this.btnSaveProveedor.OverrideDefault.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnSaveProveedor.Size = new System.Drawing.Size(72, 50);
+            this.btnSaveProveedor.StateCommon.Back.Color1 = System.Drawing.Color.Black;
+            this.btnSaveProveedor.StateCommon.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnSaveProveedor.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnSaveProveedor.StateCommon.Border.Width = 0;
+            this.btnSaveProveedor.StateCommon.Content.Image.ImageH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnSaveProveedor.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnSaveProveedor.StateNormal.Back.Color1 = System.Drawing.Color.Black;
+            this.btnSaveProveedor.StateNormal.Back.Color2 = System.Drawing.Color.DimGray;
+            this.btnSaveProveedor.TabIndex = 10;
+            this.btnSaveProveedor.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveProveedor.Values.Image")));
+            this.btnSaveProveedor.Values.Text = "";
+            this.btnSaveProveedor.Click += new System.EventHandler(this.btnSaveProveedor_Click);
+            // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.buttonSpecAny32,
+            this.buttonSpecAny33});
+            this.txtRazonSocial.Location = new System.Drawing.Point(21, 64);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(455, 44);
+            this.txtRazonSocial.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtRazonSocial.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
+            this.txtRazonSocial.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtRazonSocial.StateCommon.Border.Rounding = 1;
+            this.txtRazonSocial.StateCommon.Border.Width = 3;
+            this.txtRazonSocial.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRazonSocial.StateCommon.Content.Padding = new System.Windows.Forms.Padding(2, 6, -1, -1);
+            this.txtRazonSocial.TabIndex = 2;
+            // 
+            // buttonSpecAny32
+            // 
+            this.buttonSpecAny32.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.buttonSpecAny32.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
+            this.buttonSpecAny32.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpecAny32.Image")));
+            this.buttonSpecAny32.UniqueName = "7AF85AC7B87D4C05B4ACC11C8B065BA5";
+            // 
+            // buttonSpecAny33
+            // 
+            this.buttonSpecAny33.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.buttonSpecAny33.Enabled = ComponentFactory.Krypton.Toolkit.ButtonEnabled.False;
+            this.buttonSpecAny33.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.InputControl;
+            this.buttonSpecAny33.Text = "RAZON SOCIAL";
+            this.buttonSpecAny33.UniqueName = "A651DF55150540C05798B1CFF3E85A84";
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(407, 50);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(101, 77);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 6;
+            this.pbLogo.TabStop = false;
+            // 
+            // kryptonManager1
+            // 
+            this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black;
             // 
             // kpProveedor
             // 
@@ -1439,7 +1905,10 @@ namespace SGI.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1716, 1017);
+
+            this.ClientSize = new System.Drawing.Size(1144, 678);
+            this.Controls.Add(this.pbLogo);
+
             this.Controls.Add(this.kryptonNavigator1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSave);
@@ -1451,6 +1920,7 @@ namespace SGI.Views
             this.Name = "fProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fProducts";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fProducts_FormClosed);
             this.Load += new System.EventHandler(this.fProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).EndInit();
             this.kryptonNavigator1.ResumeLayout(false);
@@ -1471,15 +1941,21 @@ namespace SGI.Views
             ((System.ComponentModel.ISupportInitialize)(this.kpFamily)).EndInit();
             this.kpFamily.ResumeLayout(false);
             this.kpFamily.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFamilia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KryptonHeaderGroup2.Panel)).EndInit();
             this.KryptonHeaderGroup2.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.KryptonHeaderGroup2)).EndInit();
             this.KryptonHeaderGroup2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pFamilia)).EndInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxFamilia)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.kpProveedor)).EndInit();
             this.kpProveedor.ResumeLayout(false);
             this.kpProveedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProveedores)).EndInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1535,14 +2011,13 @@ namespace SGI.Views
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup btnBuscarImagen;
         private System.Windows.Forms.PictureBox pBox;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelFamilia;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddFamilia;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSaveFamilia;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFamilia;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny25;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny26;
-        private ComponentFactory.Krypton.Toolkit.KryptonListBox klistFamilia;
         private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup KryptonHeaderGroup2;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup buttonSpecHeaderGroup1;
-        private System.Windows.Forms.PictureBox pFamilia;
+        private System.Windows.Forms.PictureBox pBoxFamilia;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dateFechaVencimiento;
         private System.Windows.Forms.Label lblFechaVencimiento;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtCodigo;
@@ -1554,32 +2029,41 @@ namespace SGI.Views
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbProveedor;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny31;
         private ComponentFactory.Krypton.Navigator.KryptonPage kpProveedor;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox6;
+
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtContacto;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny44;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny45;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox5;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTelefono;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny42;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny43;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox4;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtCiudad;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny40;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny41;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox3;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtComuna;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny38;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny39;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDireccion;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny36;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny37;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtGiro;
+
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny34;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny35;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtRutProveedor;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny8;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny9;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelProveedor;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddProveedor;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtProveedor;
+
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSaveProveedor;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtRazonSocial;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny32;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny33;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dtGridProveedores;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dtFamilia;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddFamilia;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddProveedores;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager1;
+
     }
 }
